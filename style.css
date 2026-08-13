@@ -144,7 +144,7 @@ nav {
 .cover-image {
     width: 100%;
     height: 450px;
-    background-image: url('mens/background\ image.webp'); /* Replace with your image path */
+    background-image: url('assest/in\ image/background\ image.webp'); /* Replace with your image path */
     background-size: cover;
     background-position: center;
     position: relative;
@@ -497,7 +497,7 @@ body {
     padding: 20px;
 }
 .back{
-    background-image: url(about\ us.jpg);
+    background-image: url(assest/about\ us.jpg);
     background-position: center;
     background-size: cover;
 }
