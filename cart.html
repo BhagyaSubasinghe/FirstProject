@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Shopping Cart - Nadiyas Clothing</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ================= NAVIGATION ================= -->
+
+    <nav>
+        <div class="logo">
+            <a href="index.html">
+                <img src="../assest/in image/logo image.jpg" alt="Nadiyas Clothing">
+            </a>
+        </div>
+
+        <ul class="nav-links">
+            <li>
+                <a href="index.html">Home</a>
+            </li>
+
+            <li>
+                <a href="about.html">About</a>
+            </li>
+
+            <li class="dropdown">
+                <a href="#">Shop</a>
+
+                <ul class="dropdown-content">
+                    <li>
+                        <a href="shop/Mens.html">Mens</a>
+                    </li>
+
+                    <li>
+                        <a href="shop/Women.html">Womens</a>
+                    </li>
+
+                    <li>
+                        <a href="shop/Unisex.html">Unisex</a>
+                    </li>
+
+                    <li>
+                        <a href="shop/kids.html">Kids</a>
+                    </li>
+                </ul>
+            </li>
+
+            <li>
+                <a href="contact.html">Contact</a>
+            </li>
+
+            <li>
+                <a href="cart.html">
+                    Cart (<span id="cart-count">0</span>)
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+
+    <!-- ================= CART ================= -->
+
+    <main class="cart-page">
+
+        <div class="cart-container">
+
+            <h1>Shopping Cart</h1>
+
+            <!-- Cart items will appear here -->
+            <div id="cart-items"></div>
+
+
+            <!-- Empty cart message -->
+            <div id="empty-cart" style="display: none;">
+
+                <h2>Your cart is empty</h2>
+
+                <p>
+                    You haven't added any products to your cart yet.
+                </p>
+
+                <a href="index.html">
+                    <button type="button">
+                        Continue Shopping
+                    </button>
+                </a>
+
+            </div>
+
+
+            <!-- Cart summary -->
+            <div id="cart-summary" style="display: none;">
+
+                <div class="summary-box">
+
+                    <h2>Order Summary</h2>
+
+                    <div class="summary-row">
+                        <span>Subtotal</span>
+                        <span id="subtotal">$0.00</span>
+                    </div>
+
+                    <div class="summary-row">
+                        <span>Delivery Fee</span>
+                        <span id="delivery-fee">$5.00</span>
+                    </div>
+
+                    <hr>
+
+                    <div class="summary-row total-row">
+                        <strong>Total</strong>
+                        <strong id="total">$0.00</strong>
+                    </div>
+
+
+                    <button
+                        type="button"
+                        class="checkout-btn"
+                        onclick="goToCheckout()">
+
+                        Proceed to Checkout
+
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="clear-cart-btn"
+                        onclick="clearCart()">
+
+                        Clear Cart
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <div class="footer-container">
+
+            <div class="footer-about">
+
+                <img
+                    src="../assest/in image/logo image.jpg"
+                    alt="Nadiyas Clothing"
+                    class="footer-logo">
+
+                <p>
+                    Nadiyas Clothing takes pride in its Sri Lankan roots
+                    while offering a world-class retail experience.
+                </p>
+
+            </div>
+
+
+            <div class="footer-info">
+
+                <h3>INFORMATION</h3>
+
+                <ul>
+                    <li>
+                        <a href="#">FAQ</a>
+                    </li>
+
+                    <li>
+                        <a href="about.html">About Us</a>
+                    </li>
+
+                    <li>
+                        <a href="#">Privacy Policy</a>
+                    </li>
+
+                    <li>
+                        <a href="#">Terms & Conditions</a>
+                    </li>
+
+                    <li>
+                        <a href="#">Delivery Details</a>
+                    </li>
+
+                    <li>
+                        <a href="#">Return Policy</a>
+                    </li>
+                </ul>
+
+            </div>
+
+
+            <div class="footer-contact">
+
+                <h3>GET IN TOUCH</h3>
+
+                <p>
+                    +94 77 404 9047
+                </p>
+
+                <p>
+                    shop@nadiyasclothing.lk
+                </p>
+
+                <p>
+                    Colombo 07, Sri Lanka
+                </p>
+
+            </div>
+
+
+            <div class="footer-subscribe">
+
+                <h3>SUBSCRIBE TO NEWSLETTER</h3>
+
+                <form>
+
+                    <input
+                        type="email"
+                        placeholder="Email"
+                        required>
+
+                    <button type="submit">
+                        Subscribe
+                    </button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <!-- ================= CART JAVASCRIPT ================= -->
+
+    <script src="js/cart.js"></script>
+
+</body>
+
+</html>

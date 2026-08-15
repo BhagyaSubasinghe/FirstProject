@@ -5,208 +5,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Product Details - Nadiyas Clothing</title>
+    <title>Product - Nadiyas Clothing</title>
 
     <link rel="stylesheet" href="style.css">
-
-    <style>
-        /* Product Details Page */
-
-        .product-page {
-            max-width: 1200px;
-            margin: 60px auto;
-            padding: 20px;
-        }
-
-        .product-details-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
-            align-items: start;
-        }
-
-        .product-image-container {
-            text-align: center;
-        }
-
-        .product-image-container img {
-            width: 100%;
-            max-width: 500px;
-            height: 550px;
-            object-fit: cover;
-            border-radius: 8px;
-        }
-
-        .product-information {
-            padding: 20px;
-        }
-
-        .product-information h1 {
-            font-size: 36px;
-            margin-bottom: 15px;
-        }
-
-        .product-price {
-            font-size: 25px;
-            font-weight: bold;
-            margin: 20px 0;
-        }
-
-        .product-description {
-            line-height: 1.7;
-            margin-bottom: 25px;
-        }
-
-        .product-category {
-            margin-bottom: 20px;
-            font-weight: bold;
-        }
-
-        .size-section {
-            margin: 25px 0;
-        }
-
-        .size-section h3 {
-            margin-bottom: 12px;
-        }
-
-        .size-options {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
-
-        .size-option {
-            padding: 10px 18px;
-            border: 1px solid #333;
-            background: white;
-            cursor: pointer;
-            border-radius: 4px;
-        }
-
-        .size-option:hover {
-            background: #eee;
-        }
-
-        .size-option.selected {
-            background: #222;
-            color: white;
-        }
-
-        .quantity-section {
-            margin: 25px 0;
-        }
-
-        .quantity-controls {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            margin-top: 10px;
-        }
-
-        .quantity-controls button {
-            width: 35px;
-            height: 35px;
-            border: 1px solid #333;
-            background: white;
-            cursor: pointer;
-            font-size: 20px;
-        }
-
-        #quantity {
-            font-size: 18px;
-            min-width: 30px;
-            text-align: center;
-        }
-
-        .product-actions {
-            display: flex;
-            gap: 15px;
-            margin-top: 30px;
-        }
-
-        .product-actions button {
-            padding: 14px 25px;
-            border: none;
-            cursor: pointer;
-            font-size: 16px;
-            border-radius: 4px;
-        }
-
-        .add-cart-btn {
-            background: #222;
-            color: white;
-        }
-
-        .buy-now-btn {
-            background: #c9a227;
-            color: white;
-        }
-
-        .product-actions button:hover {
-            opacity: 0.85;
-        }
-
-        .stock-info {
-            margin-top: 20px;
-            font-weight: bold;
-        }
-
-        .error-message {
-            text-align: center;
-            padding: 50px;
-            font-size: 20px;
-        }
-
-        .loading {
-            text-align: center;
-            padding: 50px;
-            font-size: 20px;
-        }
-
-        @media (max-width: 768px) {
-
-            .product-details-container {
-                grid-template-columns: 1fr;
-                gap: 20px;
-            }
-
-            .product-image-container img {
-                height: auto;
-                max-height: 500px;
-            }
-
-            .product-information h1 {
-                font-size: 28px;
-            }
-
-            .product-actions {
-                flex-direction: column;
-            }
-
-            .product-actions button {
-                width: 100%;
-            }
-        }
-    </style>
-
 </head>
 
 <body>
 
     <!-- Navigation -->
-
     <nav>
-
         <div class="logo">
-
-            <a href="index.html">
-
-                <img src="assest/in image/logo image.jpg"
-                     alt="Nadiyas Clothing Logo">
-
-            </a>
-
+            <img src="../assest/in image/logo image.jpg" alt="Nadiyas Clothing Logo">
         </div>
 
         <ul class="nav-links">
@@ -220,7 +29,6 @@
             </li>
 
             <li class="dropdown">
-
                 <a href="#">Shop</a>
 
                 <ul class="dropdown-content">
@@ -242,150 +50,113 @@
                     </li>
 
                 </ul>
-
             </li>
 
             <li>
                 <a href="contact.html">Contact</a>
             </li>
 
-            <li>
-                <a href="cart.html">Cart</a>
-            </li>
-
         </ul>
-
     </nav>
 
 
-    <!-- Product Details -->
+    <!-- Product Section -->
+    <section class="product-page">
 
-    <main class="product-page">
+        <div class="product-container">
 
-        <div id="loading" class="loading">
-            Loading product...
-        </div>
-
-        <div id="product-container"
-             class="product-details-container"
-             style="display: none;">
-
-            <!-- Product image -->
-
+            <!-- Product Image -->
             <div class="product-image-container">
 
-                <img id="product-image"
-                     src=""
-                     alt="Product">
+                <img
+                    id="productImage"
+                    src=""
+                    alt="Product Image"
+                    class="product-image"
+                >
 
             </div>
 
 
-            <!-- Product information -->
+            <!-- Product Details -->
+            <div class="product-details">
 
-            <div class="product-information">
+                <p id="productCategory" class="product-category">
+                    Loading...
+                </p>
 
-                <h1 id="product-name">
-                    Product Name
+                <h1 id="productName">
+                    Loading product...
                 </h1>
 
+                <p id="productDescription">
+                    Please wait...
+                </p>
 
-                <div class="product-category">
-
-                    Category:
-                    <span id="product-category"></span>
-
-                </div>
-
-
-                <div class="product-price">
-
-                    $<span id="product-price"></span>
-
-                </div>
+                <h2 id="productPrice">
+                    $0.00
+                </h2>
 
 
-                <div class="product-description">
+                <!-- Sizes -->
+                <div class="product-option">
 
-                    <p id="product-description"></p>
+                    <label for="size">
+                        Select Size
+                    </label>
 
-                </div>
+                    <select id="size">
 
+                        <option value="">
+                            Select Size
+                        </option>
 
-                <!-- Size -->
-
-                <div class="size-section">
-
-                    <h3>Select Size</h3>
-
-                    <div id="size-options"
-                         class="size-options">
-
-                    </div>
+                    </select>
 
                 </div>
 
 
                 <!-- Quantity -->
+                <div class="product-option">
 
-                <div class="quantity-section">
+                    <label for="quantity">
+                        Quantity
+                    </label>
 
-                    <h3>Quantity</h3>
-
-                    <div class="quantity-controls">
-
-                        <button
-                            type="button"
-                            onclick="decreaseQuantity()">
-                            -
-                        </button>
-
-                        <span id="quantity">
-                            1
-                        </span>
-
-                        <button
-                            type="button"
-                            onclick="increaseQuantity()">
-                            +
-                        </button>
-
-                    </div>
+                    <input
+                        type="number"
+                        id="quantity"
+                        value="1"
+                        min="1"
+                    >
 
                 </div>
 
 
                 <!-- Stock -->
-
-                <div class="stock-info">
-
+                <p>
                     Available Stock:
-                    <span id="product-stock"></span>
-
-                </div>
+                    <strong id="productStock">
+                        -
+                    </strong>
+                </p>
 
 
                 <!-- Buttons -->
-
-                <div class="product-actions">
+                <div class="product-buttons">
 
                     <button
                         type="button"
-                        class="add-cart-btn"
-                        onclick="addToCart()">
-
+                        id="addToCartBtn"
+                    >
                         Add to Cart
-
                     </button>
 
-
                     <button
                         type="button"
-                        class="buy-now-btn"
-                        onclick="buyNow()">
-
+                        id="buyNowBtn"
+                    >
                         Buy Now
-
                     </button>
 
                 </div>
@@ -394,18 +165,10 @@
 
         </div>
 
-
-        <div id="error-message"
-             class="error-message"
-             style="display: none;">
-
-        </div>
-
-    </main>
+    </section>
 
 
     <!-- Footer -->
-
     <footer>
 
         <div class="footer-container">
@@ -413,13 +176,14 @@
             <div class="footer-about">
 
                 <img
-                    src="assest/in image/logo image.jpg"
+                    src="../assest/in image/logo image.jpg"
                     alt="Nadiyas Clothing Logo"
-                    class="footer-logo">
+                    class="footer-logo"
+                >
 
                 <p>
-                    Nadiyas Clothing, retail chain takes pride
-                    in its Sri Lankan roots but offers a world-class
+                    Nadiyas Clothing, retail chain takes pride in
+                    its Sri Lankan roots but offers a world-class
                     retail experience that drives customer loyalty
                     while setting new benchmarks in customer-centricity.
                 </p>
@@ -466,25 +230,16 @@
 
                 <h3>GET IN TOUCH</h3>
 
-                <p>
-                    <a href="#">Instagram</a>
-                </p>
+                <p>Instagram</p>
+                <p>Facebook</p>
+                <p>WhatsApp</p>
+                <p>TikTok</p>
 
                 <p>
-                    <a href="#">Facebook</a>
-                </p>
-
-                <p>
-                    <a href="#">WhatsApp</a>
-                </p>
-
-                <p>
-                    <a href="#">TikTok</a>
-                </p>
-
-                <p>
-                    Head Office: Colombo 07<br>
-                    +94 77 404 9047<br>
+                    Head Office: Colombo 07, Sri Lanka.
+                    <br>
+                    +94 77 404 9047
+                    <br>
                     info@nadiyasclothing.lk
                 </p>
 
@@ -493,26 +248,23 @@
 
             <div class="footer-subscribe">
 
-                <h3>SUBSCRIBE TO NEWSLETTER</h3>
+                <h3>
+                    SUBSCRIBE TO NEWSLETTER
+                </h3>
 
                 <form>
 
                     <input
                         type="email"
                         placeholder="Email"
-                        required>
+                        required
+                    >
 
                     <button type="submit">
                         Subscribe
                     </button>
 
                 </form>
-
-                <p>
-                    By subscribing, you agree to receive
-                    promotional and personalized marketing emails
-                    from us.
-                </p>
 
             </div>
 
@@ -521,13 +273,20 @@
     </footer>
 
 
-    <!-- JavaScript -->
-
+    <!-- Product API JavaScript -->
     <script>
 
-        // Get product ID from URL
-        // Example:
-        // product.html?id=1
+        // ==========================================
+        // PHP PRODUCT API
+        // ==========================================
+
+        const API_URL =
+            "../backend/api/products.php";
+
+
+        // ==========================================
+        // GET PRODUCT ID FROM URL
+        // ==========================================
 
         const urlParams =
             new URLSearchParams(window.location.search);
@@ -536,54 +295,50 @@
             urlParams.get("id");
 
 
-        let currentProduct = null;
+        // ==========================================
+        // CHECK PRODUCT ID
+        // ==========================================
 
-        let selectedSize = null;
+        if (!productId) {
 
-        let quantity = 1;
+            document.getElementById("productName").textContent =
+                "Product ID is missing.";
+
+        } else {
+
+            loadProduct();
+
+        }
 
 
-        // Load product
+        // ==========================================
+        // LOAD PRODUCT FROM PHP API
+        // ==========================================
 
         async function loadProduct() {
 
-            const loading =
-                document.getElementById("loading");
-
-            const container =
-                document.getElementById("product-container");
-
-            const errorMessage =
-                document.getElementById("error-message");
-
-
-            // Check product ID
-
-            if (!productId) {
-
-                loading.style.display = "none";
-
-                errorMessage.style.display = "block";
-
-                errorMessage.innerHTML =
-                    "Product ID is missing.";
-
-                return;
-
-            }
-
-
             try {
 
-                const response = await fetch(
-                    `../backend/api/products.php?id=${productId}`
+                console.log(
+                    "Connecting to:",
+                    API_URL
+                );
+
+
+                const response =
+                    await fetch(API_URL);
+
+
+                console.log(
+                    "Response status:",
+                    response.status
                 );
 
 
                 if (!response.ok) {
 
                     throw new Error(
-                        "Unable to connect to product API."
+                        "API request failed"
                     );
 
                 }
@@ -593,432 +348,210 @@
                     await response.json();
 
 
-                console.log("API Response:", result);
+                console.log(
+                    "API result:",
+                    result
+                );
 
 
-                if (
-                    !result.success ||
-                    !result.data
-                ) {
+                // Check API response
+                if (!result.success) {
 
                     throw new Error(
-                        "Product not found."
+                        "API returned an error"
                     );
 
                 }
 
 
-                // Your API may return a single object
-                // or an array.
+                // Find requested product
+                const product =
+                    result.data.find(
+                        item =>
+                            String(item.id) ===
+                            String(productId)
+                    );
 
-                if (Array.isArray(result.data)) {
 
-                    currentProduct =
-                        result.data[0];
+                // Product doesn't exist
+                if (!product) {
 
-                } else {
+                    document.getElementById(
+                        "productName"
+                    ).textContent =
+                        "Product not found.";
 
-                    currentProduct =
-                        result.data;
+                    return;
 
                 }
 
 
-                if (!currentProduct) {
+                // ==================================
+                // DISPLAY PRODUCT
+                // ==================================
 
-                    throw new Error(
-                        "Product not found."
+                document.getElementById(
+                    "productName"
+                ).textContent =
+                    product.name;
+
+
+                document.getElementById(
+                    "productDescription"
+                ).textContent =
+                    product.description;
+
+
+                document.getElementById(
+                    "productPrice"
+                ).textContent =
+                    "$" + product.price;
+
+
+                document.getElementById(
+                    "productCategory"
+                ).textContent =
+                    product.category;
+
+
+                document.getElementById(
+                    "productStock"
+                ).textContent =
+                    product.stock;
+
+
+                // ==================================
+                // PRODUCT IMAGE
+                // ==================================
+
+                const image =
+                    document.getElementById(
+                        "productImage"
+                    );
+
+
+                /*
+                    Change this later according
+                    to your actual image folder.
+                */
+
+                image.src =
+                    "../assest/" +
+                    product.image;
+
+
+                image.alt =
+                    product.name;
+
+
+                // ==================================
+                // SIZE OPTIONS
+                // ==================================
+
+                const sizeSelect =
+                    document.getElementById(
+                        "size"
+                    );
+
+
+                sizeSelect.innerHTML =
+                    '<option value="">Select Size</option>';
+
+
+                if (product.sizes) {
+
+                    const sizes =
+                        product.sizes.split(",");
+
+
+                    sizes.forEach(
+                        function(size) {
+
+                            const option =
+                                document.createElement(
+                                    "option"
+                                );
+
+                            option.value =
+                                size.trim();
+
+                            option.textContent =
+                                size.trim();
+
+                            sizeSelect.appendChild(
+                                option
+                            );
+
+                        }
                     );
 
                 }
 
 
-                displayProduct(currentProduct);
+                console.log(
+                    "Product loaded successfully:",
+                    product
+                );
 
 
             } catch (error) {
 
-                console.error(error);
-
-
-                loading.style.display =
-                    "none";
-
-                errorMessage.style.display =
-                    "block";
-
-                errorMessage.innerHTML =
-                    error.message ||
-                    "Unable to load product.";
-
-            }
-
-        }
-
-
-        // Display product
-
-        function displayProduct(product) {
-
-            document.getElementById("loading")
-                .style.display = "none";
-
-
-            document.getElementById("product-container")
-                .style.display = "grid";
-
-
-            document.getElementById("product-name")
-                .textContent = product.name;
-
-
-            document.getElementById("product-category")
-                .textContent = product.category;
-
-
-            document.getElementById("product-price")
-                .textContent = product.price;
-
-
-            document.getElementById("product-description")
-                .textContent =
-                    product.description ||
-                    "No description available.";
-
-
-            document.getElementById("product-stock")
-                .textContent = product.stock;
-
-
-            // Product image
-
-            document.getElementById("product-image")
-                .src =
-                    getProductImage(product);
-
-
-            document.getElementById("product-image")
-                .alt = product.name;
-
-
-            // Sizes
-
-            createSizeOptions(product.sizes);
-
-        }
-
-
-        // Get product image based on category
-
-        function getProductImage(product) {
-
-            const category =
-                product.category.toLowerCase();
-
-
-            let folder = "";
-
-
-            if (category === "men") {
-
-                folder = "mens";
-
-            } else if (category === "women") {
-
-                folder = "womens";
-
-            } else if (category === "unisex") {
-
-                folder = "unisex";
-
-            } else if (category === "kids") {
-
-                folder = "kids";
-
-            }
-
-
-            return `assest/${folder}/${product.image}`;
-
-        }
-
-
-        // Create size buttons
-
-        function createSizeOptions(sizes) {
-
-            const container =
-                document.getElementById("size-options");
-
-
-            container.innerHTML = "";
-
-
-            if (!sizes) {
-
-                container.innerHTML =
-                    "<p>One Size</p>";
-
-                selectedSize = "One Size";
-
-                return;
-
-            }
-
-
-            const sizeArray =
-                sizes.split(",");
-
-
-            sizeArray.forEach(size => {
-
-                size = size.trim();
-
-
-                const button =
-                    document.createElement("button");
-
-
-                button.type = "button";
-
-                button.className =
-                    "size-option";
-
-                button.textContent =
-                    size;
-
-
-                button.addEventListener(
-                    "click",
-                    function () {
-
-                        document
-                            .querySelectorAll(".size-option")
-                            .forEach(btn => {
-
-                                btn.classList.remove(
-                                    "selected"
-                                );
-
-                            });
-
-
-                        button.classList.add(
-                            "selected"
-                        );
-
-
-                        selectedSize = size;
-
-                    }
+                console.error(
+                    "API ERROR:",
+                    error
                 );
 
 
-                container.appendChild(button);
-
-            });
-
-        }
-
-
-        // Increase quantity
-
-        function increaseQuantity() {
-
-            if (!currentProduct) {
-                return;
-            }
+                document.getElementById(
+                    "productName"
+                ).textContent =
+                    "Unable to connect to product API.";
 
 
-            const stock =
-                parseInt(currentProduct.stock);
-
-
-            if (quantity < stock) {
-
-                quantity++;
-
-                document.getElementById("quantity")
-                    .textContent = quantity;
+                document.getElementById(
+                    "productDescription"
+                ).textContent =
+                    "Please check that XAMPP Apache and MySQL are running.";
 
             }
 
         }
 
 
-        // Decrease quantity
+        // ==========================================
+        // ADD TO CART
+        // ==========================================
 
-        function decreaseQuantity() {
+        document.getElementById(
+            "addToCartBtn"
+        ).addEventListener(
+            "click",
+            function() {
 
-            if (quantity > 1) {
-
-                quantity--;
-
-                document.getElementById("quantity")
-                    .textContent = quantity;
-
-            }
-
-        }
-
-
-        // Add to Cart
-
-        function addToCart() {
-
-            if (!currentProduct) {
-
-                alert("Product is not loaded.");
-
-                return;
-
-            }
-
-
-            if (!selectedSize) {
-
-                alert("Please select a size.");
-
-                return;
-
-            }
-
-
-            const cart =
-                JSON.parse(
-                    localStorage.getItem("cart")
-                ) || [];
-
-
-            const existingItem =
-                cart.find(item =>
-                    item.productId ==
-                    currentProduct.id &&
-                    item.size ==
-                    selectedSize
+                alert(
+                    "Add to Cart will be connected next."
                 );
 
+            }
+        );
 
-            if (existingItem) {
 
-                existingItem.quantity +=
-                    quantity;
+        // ==========================================
+        // BUY NOW
+        // ==========================================
 
-            } else {
+        document.getElementById(
+            "buyNowBtn"
+        ).addEventListener(
+            "click",
+            function() {
 
-                cart.push({
-
-                    productId:
-                        currentProduct.id,
-
-                    name:
-                        currentProduct.name,
-
-                    price:
-                        parseFloat(
-                            currentProduct.price
-                        ),
-
-                    image:
-                        currentProduct.image,
-
-                    category:
-                        currentProduct.category,
-
-                    size:
-                        selectedSize,
-
-                    quantity:
-                        quantity
-
-                });
+                alert(
+                    "Buy Now will be connected next."
+                );
 
             }
-
-
-            localStorage.setItem(
-                "cart",
-                JSON.stringify(cart)
-            );
-
-
-            alert(
-                currentProduct.name +
-                " has been added to your cart."
-            );
-
-        }
-
-
-        // Buy Now
-
-        function buyNow() {
-
-            if (!currentProduct) {
-
-                alert("Product is not loaded.");
-
-                return;
-
-            }
-
-
-            if (!selectedSize) {
-
-                alert("Please select a size.");
-
-                return;
-
-            }
-
-
-            const buyNowProduct = {
-
-                productId:
-                    currentProduct.id,
-
-                name:
-                    currentProduct.name,
-
-                price:
-                    parseFloat(
-                        currentProduct.price
-                    ),
-
-                image:
-                    currentProduct.image,
-
-                category:
-                    currentProduct.category,
-
-                size:
-                    selectedSize,
-
-                quantity:
-                    quantity
-
-            };
-
-
-            localStorage.setItem(
-                "buyNowProduct",
-                JSON.stringify(
-                    buyNowProduct
-                )
-            );
-
-
-            // Checkout page will be created next
-
-            window.location.href =
-                "checkout.html?buyNow=true";
-
-        }
-
-
-        // Start loading product
-
-        loadProduct();
+        );
 
     </script>
 
