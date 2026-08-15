@@ -116,147 +116,19 @@
 
 
     <!-- Men's Collection -->
+        <section class="collection">
 
-    <section class="collection">
+    <div class="collection-grid" id="product-container">
 
-        <div class="collection-grid">
+        <p>Loading products...</p>
 
+    </div>
 
-            <!-- Product 1 -->
+</section>
+   
 
-            <div class="collection-item">
-
-                <img
-                    src="../assest/mens/image1.jpg"
-                    alt="Charcoal Polo Shirt">
-
-                <div class="details">
-
-                    <h3>Charcoal Polo Shirt</h3>
-
-                    <p>Size: M, L, XL</p>
-
-                    <p>Price: $20</p>
-
-                </div>
-
-            </div>
-
-
-
-            <!-- Product 2 -->
-
-            <div class="collection-item">
-
-                <img
-                    src="../assest/mens/image2.jpg"
-                    alt="White Crew Neck T-Shirt">
-
-                <div class="details">
-
-                    <h3>White Crew Neck T-Shirt</h3>
-
-                    <p>Size: S, M, L</p>
-
-                    <p>Price: $12</p>
-
-                </div>
-
-            </div>
-
-
-
-            <!-- Product 3 -->
-
-            <div class="collection-item">
-
-                <img
-                    src="../assest/mens/image3.jpg"
-                    alt="Sage Green Polo">
-
-                <div class="details">
-
-                    <h3>Sage Green Polo</h3>
-
-                    <p>Size: M, L, XL</p>
-
-                    <p>Price: $15</p>
-
-                </div>
-
-            </div>
-
-
-
-            <!-- Product 4 -->
-
-            <div class="collection-item">
-
-                <img
-                    src="../assest/mens/image4.jpg"
-                    alt="Button Down Jacket">
-
-                <div class="details">
-
-                    <h3>Button-Down Jacket</h3>
-
-                    <p>Size: L, XL</p>
-
-                    <p>Price: $15</p>
-
-                </div>
-
-            </div>
-
-
-
-            <!-- Product 5 -->
-
-            <div class="collection-item">
-
-                <img
-                    src="../assest/mens/image5.jpg"
-                    alt="Yellow Linen Shirt">
-
-                <div class="details">
-
-                    <h3>Yellow Linen Shirt</h3>
-
-                    <p>Size: M, L</p>
-
-                    <p>Price: $21</p>
-
-                </div>
-
-            </div>
-
-
-
-            <!-- Product 6 -->
-
-            <div class="collection-item">
-
-                <img
-                    src="../assest/mens/image6.jpg"
-                    alt="Striped Short Sleeve Shirt">
-
-                <div class="details">
-
-                    <h3>Striped Short-Sleeve Shirt</h3>
-
-                    <p>Size: S, M, L, XL</p>
-
-                    <p>Price: $19</p>
-
-                </div>
-
-            </div>
-
-
-        </div>
-
-    </section>
-
+        
+                    
 
 
     <!-- Footer -->
@@ -430,7 +302,78 @@
         </div>
 
     </footer>
+       
+    <script>
 
+async function loadProducts() {
+
+    const productContainer =
+        document.getElementById("product-container");
+
+    try {
+
+        const response = await fetch(
+            "../../backend/api/products.php?category=Men"
+        );
+
+        if (!response.ok) {
+            throw new Error("Failed to load products");
+        }
+
+        const result = await response.json();
+
+        productContainer.innerHTML = "";
+
+        if (!result.success || result.data.length === 0) {
+
+            productContainer.innerHTML =
+                "<p>No men's products available.</p>";
+
+            return;
+        }
+
+        result.data.forEach(product => {
+
+            const productCard =
+                document.createElement("div");
+
+            productCard.className = "collection-item";
+
+            productCard.innerHTML = `
+
+                <img
+                    src="../assest/mens/${product.image}"
+                    alt="${product.name}"
+                >
+
+                <div class="details">
+
+                    <h3>${product.name}</h3>
+
+                    <p>Size: ${product.sizes}</p>
+
+                    <p>Price: $${product.price}</p>
+
+                </div>
+
+            `;
+
+            productContainer.appendChild(productCard);
+
+        });
+
+    } catch (error) {
+
+        console.error("Product loading error:", error);
+
+        productContainer.innerHTML =
+            "<p>Unable to load products.</p>";
+    }
+}
+
+loadProducts();
+
+</script>
 
 </body>
 
