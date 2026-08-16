@@ -12,10 +12,15 @@
 
 <body>
 
-    <!-- Navigation -->
+    <!-- NAVIGATION -->
+
     <nav>
+
         <div class="logo">
-            <img src="../assest/in image/logo image.jpg" alt="Nadiyas Clothing Logo">
+            <a href="index.html">
+                <img src="../assest/in image/logo image.jpg"
+                     alt="Nadiyas Clothing">
+            </a>
         </div>
 
         <ul class="nav-links">
@@ -29,6 +34,7 @@
             </li>
 
             <li class="dropdown">
+
                 <a href="#">Shop</a>
 
                 <ul class="dropdown-content">
@@ -50,510 +56,130 @@
                     </li>
 
                 </ul>
+
             </li>
 
             <li>
                 <a href="contact.html">Contact</a>
             </li>
 
+            <li>
+                <a href="cart.html">
+                    Cart (<span id="cart-count">0</span>)
+                </a>
+            </li>
+
         </ul>
+
     </nav>
 
 
-    <!-- Product Section -->
-    <section class="product-page">
+    <!-- PRODUCT -->
 
-        <div class="product-container">
+    <main>
 
-            <!-- Product Image -->
-            <div class="product-image-container">
+        <section class="product-details-page">
 
-                <img
-                    id="productImage"
-                    src=""
-                    alt="Product Image"
-                    class="product-image"
-                >
-
+            <div id="loading">
+                Loading product...
             </div>
 
+            <div id="product-container"
+                 style="display:none;">
 
-            <!-- Product Details -->
-            <div class="product-details">
+                <div class="product-image">
 
-                <p id="productCategory" class="product-category">
-                    Loading...
-                </p>
-
-                <h1 id="productName">
-                    Loading product...
-                </h1>
-
-                <p id="productDescription">
-                    Please wait...
-                </p>
-
-                <h2 id="productPrice">
-                    $0.00
-                </h2>
-
-
-                <!-- Sizes -->
-                <div class="product-option">
-
-                    <label for="size">
-                        Select Size
-                    </label>
-
-                    <select id="size">
-
-                        <option value="">
-                            Select Size
-                        </option>
-
-                    </select>
+                    <img id="product-image"
+                         src=""
+                         alt="Product">
 
                 </div>
 
 
-                <!-- Quantity -->
-                <div class="product-option">
+                <div class="product-information">
 
-                    <label for="quantity">
-                        Quantity
-                    </label>
+                    <h1 id="product-name">
+                    </h1>
 
-                    <input
-                        type="number"
-                        id="quantity"
-                        value="1"
-                        min="1"
-                    >
+                    <p id="product-category">
+                    </p>
 
-                </div>
+                    <h2 id="product-price">
+                    </h2>
+
+                    <p id="product-description">
+                    </p>
 
 
-                <!-- Stock -->
-                <p>
-                    Available Stock:
-                    <strong id="productStock">
-                        -
-                    </strong>
-                </p>
+                    <div>
+
+                        <label for="product-size">
+                            Select Size:
+                        </label>
+
+                        <select id="product-size">
+
+                            <option value="">
+                                Select Size
+                            </option>
+
+                        </select>
+
+                    </div>
 
 
-                <!-- Buttons -->
-                <div class="product-buttons">
+                    <br>
+
+
+                    <p>
+                        Stock:
+                        <span id="product-stock">
+                        </span>
+                    </p>
+
+
+                    <br>
+
 
                     <button
                         type="button"
-                        id="addToCartBtn"
-                    >
+                        onclick="addProductToCart()">
+
                         Add to Cart
+
                     </button>
+
 
                     <button
                         type="button"
-                        id="buyNowBtn"
-                    >
+                        onclick="buyNow()">
+
                         Buy Now
+
                     </button>
 
                 </div>
 
             </div>
 
-        </div>
 
-    </section>
+            <div id="error-message"
+                 style="display:none;">
 
-
-    <!-- Footer -->
-    <footer>
-
-        <div class="footer-container">
-
-            <div class="footer-about">
-
-                <img
-                    src="../assest/in image/logo image.jpg"
-                    alt="Nadiyas Clothing Logo"
-                    class="footer-logo"
-                >
-
-                <p>
-                    Nadiyas Clothing, retail chain takes pride in
-                    its Sri Lankan roots but offers a world-class
-                    retail experience that drives customer loyalty
-                    while setting new benchmarks in customer-centricity.
-                </p>
+                Unable to load product.
 
             </div>
 
+        </section>
 
-            <div class="footer-info">
+    </main>
 
-                <h3>INFORMATION</h3>
 
-                <ul>
+    <!-- JAVASCRIPT -->
 
-                    <li>
-                        <a href="#">FAQ</a>
-                    </li>
+    <script src="js/cart.js"></script>
 
-                    <li>
-                        <a href="about.html">About Us</a>
-                    </li>
-
-                    <li>
-                        <a href="#">Privacy Policy</a>
-                    </li>
-
-                    <li>
-                        <a href="#">Terms & Conditions</a>
-                    </li>
-
-                    <li>
-                        <a href="#">Delivery Details</a>
-                    </li>
-
-                    <li>
-                        <a href="#">Return Policy</a>
-                    </li>
-
-                </ul>
-
-            </div>
-
-
-            <div class="footer-contact">
-
-                <h3>GET IN TOUCH</h3>
-
-                <p>Instagram</p>
-                <p>Facebook</p>
-                <p>WhatsApp</p>
-                <p>TikTok</p>
-
-                <p>
-                    Head Office: Colombo 07, Sri Lanka.
-                    <br>
-                    +94 77 404 9047
-                    <br>
-                    info@nadiyasclothing.lk
-                </p>
-
-            </div>
-
-
-            <div class="footer-subscribe">
-
-                <h3>
-                    SUBSCRIBE TO NEWSLETTER
-                </h3>
-
-                <form>
-
-                    <input
-                        type="email"
-                        placeholder="Email"
-                        required
-                    >
-
-                    <button type="submit">
-                        Subscribe
-                    </button>
-
-                </form>
-
-            </div>
-
-        </div>
-
-    </footer>
-
-
-    <!-- Product API JavaScript -->
-    <script>
-
-        // ==========================================
-        // PHP PRODUCT API
-        // ==========================================
-
-        const API_URL =
-            "../backend/api/products.php";
-
-
-        // ==========================================
-        // GET PRODUCT ID FROM URL
-        // ==========================================
-
-        const urlParams =
-            new URLSearchParams(window.location.search);
-
-        const productId =
-            urlParams.get("id");
-
-
-        // ==========================================
-        // CHECK PRODUCT ID
-        // ==========================================
-
-        if (!productId) {
-
-            document.getElementById("productName").textContent =
-                "Product ID is missing.";
-
-        } else {
-
-            loadProduct();
-
-        }
-
-
-        // ==========================================
-        // LOAD PRODUCT FROM PHP API
-        // ==========================================
-
-        async function loadProduct() {
-
-            try {
-
-                console.log(
-                    "Connecting to:",
-                    API_URL
-                );
-
-
-                const response =
-                    await fetch(API_URL);
-
-
-                console.log(
-                    "Response status:",
-                    response.status
-                );
-
-
-                if (!response.ok) {
-
-                    throw new Error(
-                        "API request failed"
-                    );
-
-                }
-
-
-                const result =
-                    await response.json();
-
-
-                console.log(
-                    "API result:",
-                    result
-                );
-
-
-                // Check API response
-                if (!result.success) {
-
-                    throw new Error(
-                        "API returned an error"
-                    );
-
-                }
-
-
-                // Find requested product
-                const product =
-                    result.data.find(
-                        item =>
-                            String(item.id) ===
-                            String(productId)
-                    );
-
-
-                // Product doesn't exist
-                if (!product) {
-
-                    document.getElementById(
-                        "productName"
-                    ).textContent =
-                        "Product not found.";
-
-                    return;
-
-                }
-
-
-                // ==================================
-                // DISPLAY PRODUCT
-                // ==================================
-
-                document.getElementById(
-                    "productName"
-                ).textContent =
-                    product.name;
-
-
-                document.getElementById(
-                    "productDescription"
-                ).textContent =
-                    product.description;
-
-
-                document.getElementById(
-                    "productPrice"
-                ).textContent =
-                    "$" + product.price;
-
-
-                document.getElementById(
-                    "productCategory"
-                ).textContent =
-                    product.category;
-
-
-                document.getElementById(
-                    "productStock"
-                ).textContent =
-                    product.stock;
-
-
-                // ==================================
-                // PRODUCT IMAGE
-                // ==================================
-
-                const image =
-                    document.getElementById(
-                        "productImage"
-                    );
-
-
-                /*
-                    Change this later according
-                    to your actual image folder.
-                */
-
-                image.src =
-                    "../assest/" +
-                    product.image;
-
-
-                image.alt =
-                    product.name;
-
-
-                // ==================================
-                // SIZE OPTIONS
-                // ==================================
-
-                const sizeSelect =
-                    document.getElementById(
-                        "size"
-                    );
-
-
-                sizeSelect.innerHTML =
-                    '<option value="">Select Size</option>';
-
-
-                if (product.sizes) {
-
-                    const sizes =
-                        product.sizes.split(",");
-
-
-                    sizes.forEach(
-                        function(size) {
-
-                            const option =
-                                document.createElement(
-                                    "option"
-                                );
-
-                            option.value =
-                                size.trim();
-
-                            option.textContent =
-                                size.trim();
-
-                            sizeSelect.appendChild(
-                                option
-                            );
-
-                        }
-                    );
-
-                }
-
-
-                console.log(
-                    "Product loaded successfully:",
-                    product
-                );
-
-
-            } catch (error) {
-
-                console.error(
-                    "API ERROR:",
-                    error
-                );
-
-
-                document.getElementById(
-                    "productName"
-                ).textContent =
-                    "Unable to connect to product API.";
-
-
-                document.getElementById(
-                    "productDescription"
-                ).textContent =
-                    "Please check that XAMPP Apache and MySQL are running.";
-
-            }
-
-        }
-
-
-        // ==========================================
-        // ADD TO CART
-        // ==========================================
-
-        document.getElementById(
-            "addToCartBtn"
-        ).addEventListener(
-            "click",
-            function() {
-
-                alert(
-                    "Add to Cart will be connected next."
-                );
-
-            }
-        );
-
-
-        // ==========================================
-        // BUY NOW
-        // ==========================================
-
-        document.getElementById(
-            "buyNowBtn"
-        ).addEventListener(
-            "click",
-            function() {
-
-                alert(
-                    "Buy Now will be connected next."
-                );
-
-            }
-        );
-
-    </script>
+    <script src="js/product.js"></script>
 
 </body>
 
