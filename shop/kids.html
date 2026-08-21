@@ -1,381 +1,69 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Kids Collection | Nadiyas Clothing</title>
-
-    <!-- CSS is one folder outside shop -->
+    <!-- CSS file path -->
     <link rel="stylesheet" href="../style.css">
-
 </head>
 
 <body>
 
-
     <!-- Navigation Bar -->
-
     <nav>
-
         <div class="logo">
-
             <a href="../index.html">
-
-                <img
-                    src="../assest/in image/logo image.jpg"
-                    alt="Nadiyas Clothing Logo">
-
+                <img src="../assest/in image/logo image.jpg" alt="Nadiyas Clothing Logo">
             </a>
-
         </div>
 
-
         <ul class="nav-links">
-
-            <li>
-                <a href="../index.html">Home</a>
-            </li>
-
-            <li>
-                <a href="../about.html">About</a>
-            </li>
-
-
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../about.html">About</a></li>
             <li class="dropdown">
-
                 <a href="#">Shop</a>
-
                 <ul class="dropdown-content">
-
-                    <li>
-                        <a href="Mens.html">Men</a>
-                    </li>
-
-                    <li>
-                        <a href="Women.html">Women</a>
-                    </li>
-
-                    <li>
-                        <a href="Unisex.html">Unisex</a>
-                    </li>
-
-                    <li>
-                        <a href="kids.html">Kids</a>
-                    </li>
-
+                    <li><a href="Mens.html">Men</a></li>
+                    <li><a href="Women.html">Women</a></li>
+                    <li><a href="Unisex.html">Unisex</a></li>
+                    <li><a href="kids.html">Kids</a></li>
                 </ul>
-
             </li>
-
-
-            <li>
-                <a href="../contact.html">Contact</a>
-            </li>
-
+            <li><a href="../contact.html">Contact</a></li>
         </ul>
-
     </nav>
 
-
-
     <!-- Kids Cover -->
-
     <section class="kids-cover">
-
-        <img
-            src="../assest/kids/about kid.jpg"
-            alt="Kids Fashion Cover">
-
+        <img src="../assest/kids/about kid.jpg" alt="Kids Fashion Cover">
     </section>
 
-
-
     <!-- Introduction -->
-
     <section class="content">
-
         <h1>Kids Fashion</h1>
-
         <p>
             Explore playful and trendy fashion for kids.
             From everyday comfort to special occasions,
             find the perfect outfit for your little one.
         </p>
-
     </section>
 
-
-
-    <!-- Girls Collection -->
-
+    <!-- Dynamic Kids Collection -->
     <section class="category">
-
-        <h2>Girls</h2>
-
-
-        <div class="kids-grid">
-
-
-            <!-- Girls Product 1 -->
-
-            <div class="kids-item">
-
-                <img
-                    src="../assest/kids/girls/kid g 1.jpg"
-                    alt="Sunny Cherry Tee">
-
-                <div class="details">
-
-                    <h3>Sunny Cherry Tee</h3>
-
-                    <p>Size: S, M, L</p>
-
-                    <p>Price: $4</p>
-
-                </div>
-
-            </div>
-
-
-
-            <!-- Girls Product 2 -->
-
-            <div class="kids-item">
-
-                <img
-                    src="../assest/kids/girls/kid g 2.jpg"
-                    alt="Happy Day Set">
-
-                <div class="details">
-
-                    <h3>Happy Day Set</h3>
-
-                    <p>Size: S, M, L</p>
-
-                    <p>Price: $12</p>
-
-                </div>
-
-            </div>
-
-
-
-            <!-- Girls Product 3 -->
-
-            <div class="kids-item">
-
-                <img
-                    src="../assest/kids/girls/kid g 3.jpg"
-                    alt="Sweetheart Romper">
-
-                <div class="details">
-
-                    <h3>Sweetheart Romper</h3>
-
-                    <p>Size: S, M, L</p>
-
-                    <p>Price: $13</p>
-
-                </div>
-
-            </div>
-
-
-
-            <!-- Girls Product 4 -->
-
-            <div class="kids-item">
-
-                <img
-                    src="../assest/kids/girls/kid g 4.jpg"
-                    alt="Twinkle Star Tee">
-
-                <div class="details">
-
-                    <h3>Twinkle Star Tee</h3>
-
-                    <p>Size: S, M, L</p>
-
-                    <p>Price: $20</p>
-
-                </div>
-
-            </div>
-
-
-
-            <!-- Girls Product 5 -->
-
-            <div class="kids-item">
-
-                <img
-                    src="../assest/kids/girls/kid g 5.jpg"
-                    alt="Cute Berry Tee">
-
-                <div class="details">
-
-                    <h3>Cute Berry Tee</h3>
-
-                    <p>Size: S, M, L</p>
-
-                    <p>Price: $8</p>
-
-                </div>
-
-            </div>
-
-
+        <h2>Kids Collection</h2>
+        <div class="kids-grid" id="kids-product-container">
+            <p>Loading products...</p>
         </div>
-
     </section>
-
-
-
-    <!-- Boys Collection -->
-
-    <section class="category">
-
-        <h2>Boys</h2>
-
-
-        <div class="kids-grid">
-
-
-            <!-- Boys Product 1 -->
-
-            <div class="kids-item">
-
-                <img
-                    src="../assest/kids/boys/kid b 1.jpg"
-                    alt="Mint Cool Set">
-
-                <div class="details">
-
-                    <h3>Mint Cool Set</h3>
-
-                    <p>Size: S, M, L</p>
-
-                    <p>Price: $11</p>
-
-                </div>
-
-            </div>
-
-
-
-            <!-- Boys Product 2 -->
-
-            <div class="kids-item">
-
-                <img
-                    src="../assest/kids/boys/kid b 2.jpg"
-                    alt="Snow Day Sweats">
-
-                <div class="details">
-
-                    <h3>Snow Day Sweats</h3>
-
-                    <p>Size: S, M, L</p>
-
-                    <p>Price: $13</p>
-
-                </div>
-
-            </div>
-
-
-
-            <!-- Boys Product 3 -->
-
-            <div class="kids-item">
-
-                <img
-                    src="../assest/kids/boys/kid b 4.jpg"
-                    alt="Track Star Joggers">
-
-                <div class="details">
-
-                    <h3>Track Star Joggers</h3>
-
-                    <p>Size: S, M, L</p>
-
-                    <p>Price: $9</p>
-
-                </div>
-
-            </div>
-
-
-
-            <!-- Boys Product 4 -->
-
-            <div class="kids-item">
-
-                <img
-                    src="../assest/kids/boys/kid b 5.jpg"
-                    alt="Navy Fun Tee">
-
-                <div class="details">
-
-                    <h3>Navy Fun Tee</h3>
-
-                    <p>Size: S, M, L</p>
-
-                    <p>Price: $14</p>
-
-                </div>
-
-            </div>
-
-
-
-            <!-- Boys Product 5 -->
-
-            <div class="kids-item">
-
-                <img
-                    src="../assest/kids/boys/kid b 6.jpg"
-                    alt="Dino Adventure Tee">
-
-                <div class="details">
-
-                    <h3>Dino Adventure Tee</h3>
-
-                    <p>Size: S, M, L</p>
-
-                    <p>Price: $12</p>
-
-                </div>
-
-            </div>
-
-
-        </div>
-
-    </section>
-
-
 
     <!-- Footer -->
-
     <footer>
-
         <div class="footer-container">
 
-
-            <!-- Footer About -->
-
             <div class="footer-about">
-
-                <img
-                    src="../assest/in image/logo image.jpg"
-                    alt="Nadiyas Clothing Logo"
-                    class="footer-logo">
-
+                <img src="../assest/in image/logo image.jpg" alt="Nadiyas Clothing Logo" class="footer-logo">
                 <p>
                     Nadiyas Clothing is a modern fashion brand
                     dedicated to providing stylish, comfortable,
@@ -383,156 +71,110 @@
                     provide a friendly and convenient shopping
                     experience for our customers.
                 </p>
-
             </div>
-
-
-
-            <!-- Footer Information -->
 
             <div class="footer-info">
-
                 <h3>INFORMATION</h3>
-
                 <ul>
-
-                    <li>
-                        <a href="#">FAQ</a>
-                    </li>
-
-                    <li>
-                        <a href="../about.html">About Us</a>
-                    </li>
-
-                    <li>
-                        <a href="#">Privacy Policy</a>
-                    </li>
-
-                    <li>
-                        <a href="#">Terms &amp; Conditions</a>
-                    </li>
-
-                    <li>
-                        <a href="#">Delivery Details</a>
-                    </li>
-
-                    <li>
-                        <a href="#">Return Policy</a>
-                    </li>
-
-                    <li>
-                        <a href="#">Store Locations</a>
-                    </li>
-
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="../about.html">About Us</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms &amp; Conditions</a></li>
+                    <li><a href="#">Delivery Details</a></li>
+                    <li><a href="#">Return Policy</a></li>
+                    <li><a href="#">Store Locations</a></li>
                 </ul>
-
             </div>
-
-
-
-            <!-- Footer Contact -->
 
             <div class="footer-contact">
-
                 <h3>GET IN TOUCH</h3>
-
-
-                <p>
-                    <a href="#">Instagram</a>
-                </p>
-
-                <p>
-                    <a href="#">Facebook</a>
-                </p>
+                <p><a href="#">Instagram</a></p>
+                <p><a href="#">Facebook</a></p>
+                <p><a href="#">WhatsApp</a></p>
+                <p><a href="#">TikTok</a></p>
 
                 <p>
-                    <a href="#">WhatsApp</a>
-                </p>
-
-                <p>
-                    <a href="#">TikTok</a>
-                </p>
-
-
-                <p>
-
                     <strong>Head Office:</strong><br>
-
                     Colombo 07<br>
-
                     +94 77 404 9047<br>
-
                     info@nadiyasclothing.lk
-
                 </p>
 
-
                 <p>
-
                     <strong>Online Store:</strong><br>
-
                     No. 10, Kawdana Road, Dehiwala<br>
-
                     0773540816<br>
-
                     care@nadiyasclothing.lk
-
                 </p>
-
 
                 <p>
-
                     <strong>Opening Hours:</strong><br>
-
                     Monday - Friday: 9:00 AM - 4:00 PM<br>
-
                     Saturday - Sunday: 9:00 AM - 3:00 PM<br>
-
                     Poya Days: Closed
-
                 </p>
-
             </div>
 
-
-
-            <!-- Newsletter -->
-
             <div class="footer-subscribe">
-
                 <h3>SUBSCRIBE TO NEWSLETTER</h3>
-
-
                 <form action="#" method="POST">
-
-                    <input
-                        type="email"
-                        name="newsletter_email"
-                        placeholder="Enter your email"
-                        required>
-
-
-                    <button type="submit">
-                        Subscribe
-                    </button>
-
+                    <input type="email" name="newsletter_email" placeholder="Enter your email" required>
+                    <button type="submit">Subscribe</button>
                 </form>
-
-
                 <p>
                     By subscribing, you agree to receive
                     promotional and personalized marketing
                     emails from Nadiyas Clothing.
                 </p>
-
             </div>
 
-
         </div>
-
     </footer>
 
+    <!-- Script to Load Kids Products dynamically -->
+    <script>
+    async function loadKidsProducts() {
+        const productContainer = document.getElementById("kids-product-container");
+
+        try {
+            const response = await fetch("../../backend/api/products.php?category=Kids");
+
+            if (!response.ok) {
+                throw new Error("Failed to load products");
+            }
+
+            const result = await response.json();
+            productContainer.innerHTML = "";
+
+            if (!result.success || result.data.length === 0) {
+                productContainer.innerHTML = "<p>No kids' products available.</p>";
+                return;
+            }
+
+            result.data.forEach(product => {
+                const productCard = document.createElement("div");
+                productCard.className = "kids-item";
+
+                productCard.innerHTML = `
+                    <img src="../assest/kids/${product.image}" alt="${product.name}">
+                    <div class="details">
+                        <h3>${product.name}</h3>
+                        <p>Size: ${product.sizes}</p>
+                        <p>Price: $${product.price}</p>
+                    </div>
+                `;
+
+                productContainer.appendChild(productCard);
+            });
+
+        } catch (error) {
+            console.error("Product loading error:", error);
+            productContainer.innerHTML = "<p>Unable to load products.</p>";
+        }
+    }
+
+    loadKidsProducts();
+    </script>
 
 </body>
-
 </html>

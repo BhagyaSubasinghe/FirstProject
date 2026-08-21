@@ -2,580 +2,175 @@
 <html lang="en">
 
 <head>
-
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Women's Collection | Nadiyas Clothing</title>
-
     <link rel="stylesheet" href="../style.css">
-
 </head>
 
 <body>
 
-
     <!-- Navigation Bar -->
-
     <nav>
-
         <div class="logo">
-
             <a href="../index.html">
-
-                <img
-                    src="../assest/in image/logo image.jpg"
-                    alt="Nadiyas Clothing Logo">
-
+                <img src="../assest/in image/logo image.jpg" alt="Nadiyas Clothing Logo">
             </a>
-
         </div>
-
 
         <ul class="nav-links">
-
-            <li>
-                <a href="../index.html">Home</a>
-            </li>
-
-            <li>
-                <a href="../about.html">About</a>
-            </li>
-
-
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../about.html">About</a></li>
             <li class="dropdown">
-
                 <a href="#">Shop</a>
-
                 <ul class="dropdown-content">
-
-                    <li>
-                        <a href="Mens.html">Men</a>
-                    </li>
-
-                    <li>
-                        <a href="Women.html">Women</a>
-                    </li>
-
-                    <li>
-                        <a href="Unisex.html">Unisex</a>
-                    </li>
-
-                    <li>
-                        <a href="kids.html">Kids</a>
-                    </li>
-
+                    <li><a href="Mens.html">Men</a></li>
+                    <li><a href="Women.html">Women</a></li>
+                    <li><a href="Unisex.html">Unisex</a></li>
+                    <li><a href="kids.html">Kids</a></li>
                 </ul>
-
             </li>
-
-
-            <li>
-                <a href="../contact.html">Contact</a>
-            </li>
-
+            <li><a href="../contact.html">Contact</a></li>
         </ul>
-
     </nav>
 
+    <!-- Cover -->
+    <section class="women-cover">
+        <img src="../assest/women/cover.jpg" alt="Women's Fashion Cover">
+    </section>
 
-
-    <!-- Women's Introduction -->
-
-    <section class="womens-content">
-
+    <!-- Introduction -->
+    <section class="content">
         <h1>Women's Fashion</h1>
-
         <p>
-            Discover the latest in women's fashion, from trendy
-            styles to timeless classics. Shop now to express
-            your individuality and confidence.
+            Discover elegant, stylish, and comfortable fashion for women.
+            Explore our curated selection for every occasion.
         </p>
-
     </section>
 
-
-
-    <!-- Women's Cover Image -->
-
-    <section class="womens-cover-image">
-
-        <img
-            src="../assest/womens/background 1.jpg"
-            alt="Women's Collection">
-
-    </section>
-
-
-
-    <!-- Dresses Collection -->
-
-    <section class="womens-dresses">
-
-        <h2>Dresses Collection</h2>
-
-
-        <div class="dresses-grid">
-
-
-            <!-- Dress 1 -->
-
-            <div class="dress-item">
-
-                <img
-                    src="../assest/womens/dreses/image 1.jpg"
-                    alt="Elegant Evening Gown">
-
-                <div class="dress-details">
-
-                    <h3>Elegant Evening Gown</h3>
-
-                    <p>Size: S, M, L</p>
-
-                    <p>Price: $25</p>
-
-                </div>
-
-            </div>
-
-
-
-            <!-- Dress 2 -->
-
-            <div class="dress-item">
-
-                <img
-                    src="../assest/womens/dreses/image 2.jpg"
-                    alt="Summer Floral Dress">
-
-                <div class="dress-details">
-
-                    <h3>Summer Floral Dress</h3>
-
-                    <p>Size: S, M, L</p>
-
-                    <p>Price: $18</p>
-
-                </div>
-
-            </div>
-
-
-
-            <!-- Dress 3 -->
-
-            <div class="dress-item">
-
-                <img
-                    src="../assest/womens/dreses/image 3.jpg"
-                    alt="Bohemian Maxi Dress">
-
-                <div class="dress-details">
-
-                    <h3>Bohemian Maxi Dress</h3>
-
-                    <p>Size: M, L, XL</p>
-
-                    <p>Price: $22</p>
-
-                </div>
-
-            </div>
-
-
-
-            <!-- Dress 4 -->
-
-            <div class="dress-item">
-
-                <img
-                    src="../assest/womens/dreses/image 4.jpg"
-                    alt="Silk Cocktail Dress">
-
-                <div class="dress-details">
-
-                    <h3>Silk Cocktail Dress</h3>
-
-                    <p>Size: XS, S, M</p>
-
-                    <p>Price: $12</p>
-
-                </div>
-
-            </div>
-
-
-
-            <!-- Dress 5 -->
-
-            <div class="dress-item">
-
-                <img
-                    src="../assest/womens/dreses/image 5.jpg"
-                    alt="Chic Party Dress">
-
-                <div class="dress-details">
-
-                    <h3>Chic Party Dress</h3>
-
-                    <p>Size: S, M, L</p>
-
-                    <p>Price: $19</p>
-
-                </div>
-
-            </div>
-
-
-
-            <!-- Dress 6 -->
-
-            <div class="dress-item">
-
-                <img
-                    src="../assest/womens/dreses/image 6.jpg"
-                    alt="Casual Day Dress">
-
-                <div class="dress-details">
-
-                    <h3>Casual Day Dress</h3>
-
-                    <p>Size: M, L</p>
-
-                    <p>Price: $13</p>
-
-                </div>
-
-            </div>
-
-
+    <!-- Dynamic Women's Collection -->
+    <section class="category">
+        <h2>Women's Collection</h2>
+        <div class="women-grid" id="women-product-container">
+            <p>Loading products...</p>
         </div>
-
     </section>
-
-
-
-    <!-- Women's T-Shirts -->
-
-    <section class="womens-tshirts">
-
-        <h2>T-Shirts Collection</h2>
-
-
-        <div class="tshirts-grid">
-
-
-            <!-- T-Shirt 1 -->
-
-            <div class="tshirt-item">
-
-                <img
-                    src="../assest/womens/ti - shirt/image 1.jpg"
-                    alt="Graphic Tee">
-
-                <div class="tshirt-details">
-
-                    <h3>Graphic Tee</h3>
-
-                    <p>Size: S, M, L</p>
-
-                    <p>Price: $26</p>
-
-                </div>
-
-            </div>
-
-
-
-            <!-- T-Shirt 2 -->
-
-            <div class="tshirt-item">
-
-                <img
-                    src="../assest/womens/ti - shirt/image 2.jpg"
-                    alt="Basic White Tee">
-
-                <div class="tshirt-details">
-
-                    <h3>Basic White Tee</h3>
-
-                    <p>Size: XS, S, M</p>
-
-                    <p>Price: $15</p>
-
-                </div>
-
-            </div>
-
-
-
-            <!-- T-Shirt 3 -->
-
-            <div class="tshirt-item">
-
-                <img
-                    src="../assest/womens/ti - shirt/image 3.jpg"
-                    alt="Striped V-Neck Tee">
-
-                <div class="tshirt-details">
-
-                    <h3>Striped V-Neck Tee</h3>
-
-                    <p>Size: M, L, XL</p>
-
-                    <p>Price: $16</p>
-
-                </div>
-
-            </div>
-
-
-
-            <!-- T-Shirt 4 -->
-
-            <div class="tshirt-item">
-
-                <img
-                    src="../assest/womens/ti - shirt/image 4.jpg"
-                    alt="Casual Oversized Tee">
-
-                <div class="tshirt-details">
-
-                    <h3>Casual Oversized Tee</h3>
-
-                    <p>Size: S, M, L</p>
-
-                    <p>Price: $18</p>
-
-                </div>
-
-            </div>
-
-
-
-            <!-- T-Shirt 5 -->
-
-            <div class="tshirt-item">
-
-                <img
-                    src="../assest/womens/ti - shirt/image 5.jpg"
-                    alt="Printed Crop Tee">
-
-                <div class="tshirt-details">
-
-                    <h3>Printed Crop Tee</h3>
-
-                    <p>Size: S, M</p>
-
-                    <p>Price: $17</p>
-
-                </div>
-
-            </div>
-
-
-
-            <!-- T-Shirt 6 -->
-
-            <div class="tshirt-item">
-
-                <img
-                    src="../assest/womens/ti - shirt/image 6.jpg"
-                    alt="Tie-Dye Tee">
-
-                <div class="tshirt-details">
-
-                    <h3>Tie-Dye Tee</h3>
-
-                    <p>Size: M, L</p>
-
-                    <p>Price: $14</p>
-
-                </div>
-
-            </div>
-
-
-        </div>
-
-    </section>
-
-
 
     <!-- Footer -->
-
     <footer>
-
         <div class="footer-container">
 
-
-            <!-- Footer About -->
-
             <div class="footer-about">
-
-                <img
-                    src="../assest/in image/logo image.jpg"
-                    alt="Nadiyas Clothing Logo"
-                    class="footer-logo">
-
+                <img src="../assest/in image/logo image.jpg" alt="Nadiyas Clothing Logo" class="footer-logo">
                 <p>
                     Nadiyas Clothing is a modern fashion brand
                     dedicated to providing stylish, comfortable,
-                    and quality clothing for everyone. We aim to
-                    provide a friendly and convenient shopping
-                    experience for our customers.
+                    and quality clothing for everyone.
                 </p>
-
             </div>
-
-
-
-            <!-- Footer Information -->
 
             <div class="footer-info">
-
                 <h3>INFORMATION</h3>
-
                 <ul>
-
-                    <li>
-                        <a href="#">FAQ</a>
-                    </li>
-
-                    <li>
-                        <a href="../about.html">About Us</a>
-                    </li>
-
-                    <li>
-                        <a href="#">Privacy Policy</a>
-                    </li>
-
-                    <li>
-                        <a href="#">Terms &amp; Conditions</a>
-                    </li>
-
-                    <li>
-                        <a href="#">Delivery Details</a>
-                    </li>
-
-                    <li>
-                        <a href="#">Return Policy</a>
-                    </li>
-
-                    <li>
-                        <a href="#">Store Locations</a>
-                    </li>
-
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="../about.html">About Us</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms &amp; Conditions</a></li>
+                    <li><a href="#">Delivery Details</a></li>
+                    <li><a href="#">Return Policy</a></li>
+                    <li><a href="#">Store Locations</a></li>
                 </ul>
-
             </div>
-
-
-
-            <!-- Footer Contact -->
 
             <div class="footer-contact">
-
                 <h3>GET IN TOUCH</h3>
-
-
-                <p>
-                    <a href="#">Instagram</a>
-                </p>
-
-                <p>
-                    <a href="#">Facebook</a>
-                </p>
+                <p><a href="#">Instagram</a></p>
+                <p><a href="#">Facebook</a></p>
+                <p><a href="#">WhatsApp</a></p>
+                <p><a href="#">TikTok</a></p>
 
                 <p>
-                    <a href="#">WhatsApp</a>
-                </p>
-
-                <p>
-                    <a href="#">TikTok</a>
-                </p>
-
-
-                <p>
-
                     <strong>Head Office:</strong><br>
-
                     Colombo 07<br>
-
                     +94 77 404 9047<br>
-
                     info@nadiyasclothing.lk
-
                 </p>
 
-
                 <p>
-
                     <strong>Online Store:</strong><br>
-
                     No. 10, Kawdana Road, Dehiwala<br>
-
                     0773540816<br>
-
                     care@nadiyasclothing.lk
-
                 </p>
-
 
                 <p>
-
                     <strong>Opening Hours:</strong><br>
-
                     Monday - Friday: 9:00 AM - 4:00 PM<br>
-
                     Saturday - Sunday: 9:00 AM - 3:00 PM<br>
-
                     Poya Days: Closed
-
                 </p>
-
             </div>
 
-
-
-            <!-- Newsletter -->
-
             <div class="footer-subscribe">
-
                 <h3>SUBSCRIBE TO NEWSLETTER</h3>
-
-
                 <form action="#" method="POST">
-
-                    <input
-                        type="email"
-                        name="newsletter_email"
-                        placeholder="Enter your email"
-                        required>
-
-
-                    <button type="submit">
-                        Subscribe
-                    </button>
-
+                    <input type="email" name="newsletter_email" placeholder="Enter your email" required>
+                    <button type="submit">Subscribe</button>
                 </form>
-
-
                 <p>
                     By subscribing, you agree to receive
                     promotional and personalized marketing
                     emails from Nadiyas Clothing.
                 </p>
-
             </div>
 
-
         </div>
-
     </footer>
 
+    <!-- Script to Load Women's Products -->
+    <script>
+    async function loadWomenProducts() {
+        const productContainer = document.getElementById("women-product-container");
+
+        try {
+            const response = await fetch("../../backend/api/products.php?category=Women");
+
+            if (!response.ok) {
+                throw new Error("Failed to load products");
+            }
+
+            const result = await response.json();
+            productContainer.innerHTML = "";
+
+            if (!result.success || result.data.length === 0) {
+                productContainer.innerHTML = "<p>No women's products available.</p>";
+                return;
+            }
+
+            result.data.forEach(product => {
+                const productCard = document.createElement("div");
+                productCard.className = "women-item";
+
+                productCard.innerHTML = `
+                    <img src="../assest/women/${product.image}" alt="${product.name}">
+                    <div class="details">
+                        <h3>${product.name}</h3>
+                        <p>Size: ${product.sizes}</p>
+                        <p>Price: $${product.price}</p>
+                    </div>
+                `;
+
+                productContainer.appendChild(productCard);
+            });
+
+        } catch (error) {
+            console.error("Product loading error:", error);
+            productContainer.innerHTML = "<p>Unable to load products.</p>";
+        }
+    }
+
+    loadWomenProducts();
+    </script>
 
 </body>
-
 </html>
