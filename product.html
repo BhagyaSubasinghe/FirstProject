@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Product - Nadiyas Clothing</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+
+    <nav>
+
+        <div class="logo">
+            <a href="index.html">
+                <img src="../assest/in image/logo image.jpg"
+                     alt="Nadiyas Clothing">
+            </a>
+        </div>
+
+        <ul class="nav-links">
+
+            <li>
+                <a href="index.html">Home</a>
+            </li>
+
+            <li>
+                <a href="about.html">About</a>
+            </li>
+
+            <li class="dropdown">
+
+                <a href="#">Shop</a>
+
+                <ul class="dropdown-content">
+
+                    <li>
+                        <a href="shop/Mens.html">Mens</a>
+                    </li>
+
+                    <li>
+                        <a href="shop/Women.html">Womens</a>
+                    </li>
+
+                    <li>
+                        <a href="shop/Unisex.html">Unisex</a>
+                    </li>
+
+                    <li>
+                        <a href="shop/kids.html">Kids</a>
+                    </li>
+
+                </ul>
+
+            </li>
+
+            <li>
+                <a href="contact.html">Contact</a>
+            </li>
+
+            <li>
+                <a href="cart.html">
+                    Cart (<span id="cart-count">0</span>)
+                </a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+
+    <!-- PRODUCT -->
+
+    <main>
+
+        <section class="product-details-page">
+
+            <div id="loading">
+                Loading product...
+            </div>
+
+            <div id="product-container"
+                 style="display:none;">
+
+                <div class="product-image">
+
+                    <img id="product-image"
+                         src=""
+                         alt="Product">
+
+                </div>
+
+
+                <div class="product-information">
+
+                    <h1 id="product-name">
+                    </h1>
+
+                    <p id="product-category">
+                    </p>
+
+                    <h2 id="product-price">
+                    </h2>
+
+                    <p id="product-description">
+                    </p>
+
+
+                    <div>
+
+                        <label for="product-size">
+                            Select Size:
+                        </label>
+
+                        <select id="product-size">
+
+                            <option value="">
+                                Select Size
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <br>
+
+
+                    <p>
+                        Stock:
+                        <span id="product-stock">
+                        </span>
+                    </p>
+
+
+                    <br>
+
+
+                    <button
+                        type="button"
+                        onclick="addProductToCart()">
+
+                        Add to Cart
+
+                    </button>
+
+
+                    <button
+                        type="button"
+                        onclick="buyNow()">
+
+                        Buy Now
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <div id="error-message"
+                 style="display:none;">
+
+                Unable to load product.
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- JAVASCRIPT -->
+
+    <script src="js/cart.js"></script>
+
+    <script src="js/product.js"></script>
+
+</body>
+
+</html>
