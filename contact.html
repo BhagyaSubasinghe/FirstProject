@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nadiyas Clothing - Contact Us</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 text-gray-700 flex flex-col min-h-screen">
+
+    <nav class="bg-white border-b border-gray-100 py-4 px-8 sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto flex justify-between items-center">
+            <a href="index.html">
+                <img src="assest/products/logo image.jpg" alt="Logo" class="w-10 h-10 rounded-full object-cover">
+            </a>
+            <div class="space-x-8 text-sm font-medium">
+                <a href="index.html" class="hover:text-sky-600 transition">Home</a>
+                <a href="shop.html" class="hover:text-sky-600 transition">Shop</a>
+                <a href="contact.html" class="text-sky-600 font-semibold border-b-2 border-sky-600 pb-1">Contact Us</a>
+                <a href="about.html" class="hover:text-sky-600 transition">About</a>
+            </div>
+            <a href="#" class="text-gray-600 hover:text-sky-600">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 4 0 00-8 0v4M5 11h14l1 12H4L5 11z"></path></svg>
+            </a>
+        </div>
+    </nav>
+
+    <main class="max-w-5xl mx-auto px-4 py-12 flex-grow w-full">
+        <div class="text-center max-w-xl mx-auto mb-12">
+            <h1 class="text-3xl font-bold text-gray-800 mb-2">Get in Touch</h1>
+            <p class="text-xs text-gray-500">We're here to help. Reach out to us with any questions about our collections.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+            <div>
+                <div class="rounded-2xl overflow-hidden h-64 mb-6 shadow-sm">
+                    <img src="assest/products/contact.jpg" class="w-full h-full object-cover">
+                </div>
+                <div class="bg-white p-6 rounded-2xl border border-gray-100 space-y-4 text-xs">
+                    <div>
+                        <p class="font-bold text-gray-800">Studio & Showroom</p>
+                        <p class="text-gray-500">123 Design District, Colombo, Sri Lanka</p>
+                    </div>
+                    <div>
+                        <p class="font-bold text-gray-800">Email Us</p>
+                        <p class="text-gray-500">hello@nadiyasclothing.com</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm">
+                <h3 class="font-bold text-gray-800 mb-6 text-sm">Send a Message</h3>
+                <form id="contactForm" class="space-y-4 text-xs">
+                    <div>
+                        <label class="block text-gray-500 mb-1">Full Name</label>
+                        <input type="text" id="name" required class="w-full bg-gray-50 border border-gray-100 rounded-lg p-3 outline-none focus:border-sky-400">
+                    </div>
+                    <div>
+                        <label class="block text-gray-500 mb-1">Email Address</label>
+                        <input type="email" id="email" required class="w-full bg-gray-50 border border-gray-100 rounded-lg p-3 outline-none focus:border-sky-400">
+                    </div>
+                    <div>
+                        <label class="block text-gray-500 mb-1">Subject</label>
+                        <input type="text" id="subject" class="w-full bg-gray-50 border border-gray-100 rounded-lg p-3 outline-none focus:border-sky-400">
+                    </div>
+                    <div>
+                        <label class="block text-gray-500 mb-1">Message</label>
+                        <textarea id="message" rows="4" required class="w-full bg-gray-50 border border-gray-100 rounded-lg p-3 outline-none focus:border-sky-400"></textarea>
+                    </div>
+                    <button type="submit" class="w-full bg-sky-200 hover:bg-sky-300 text-sky-900 font-bold py-3 rounded-lg transition">Send Message</button>
+                    <p id="responseMsg" class="mt-2 text-center text-xs font-semibold"></p>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <footer class="mt-auto bg-gray-50 border-t border-gray-100 py-8 text-xs text-gray-400">
+        <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-4">
+            <div>
+                <p class="font-semibold text-gray-700 text-sm">Nadiyas Clothing</p>
+                <p>© 2026 Nadiyas Clothing. All rights reserved.</p>
+            </div>
+            <div class="flex space-x-6">
+                <a href="#" class="hover:underline">Privacy Policy</a>
+                <a href="#" class="hover:underline">Terms of Service</a>
+                <a href="#" class="hover:underline">Shipping Info</a>
+                <a href="#" class="hover:underline">Returns</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const msgObj = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                subject: document.getElementById('subject').value,
+                message: document.getElementById('message').value
+            };
+
+            try {
+                const res = await fetch('http://localhost:8000/api/contact.php', {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify(msgObj)
+                });
+                const result = await res.json();
+                const respEl = document.getElementById('responseMsg');
+                if(result.success) {
+                    respEl.className = "mt-2 text-center text-xs font-semibold text-green-600";
+                    respEl.innerText = result.message;
+                    document.getElementById('contactForm').reset();
+                } else {
+                    respEl.className = "mt-2 text-center text-xs font-semibold text-red-600";
+                    respEl.innerText = result.message;
+                }
+            } catch(err) {
+                console.error(err);
+            }
+        });
+    </script>
+</body>
+</html>

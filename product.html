@@ -1,186 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Product - Nadiyas Clothing</title>
-
-    <link rel="stylesheet" href="style.css">
+    <title>Nadiyas Clothing - Product Details</title>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
+<body class="bg-gray-50 text-gray-700 flex flex-col min-h-screen">
 
-<body>
-
-    <!-- NAVIGATION -->
-
-    <nav>
-
-        <div class="logo">
+    <nav class="bg-white border-b border-gray-100 py-4 px-8 sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto flex justify-between items-center">
             <a href="index.html">
-                <img src="../assest/in image/logo image.jpg"
-                     alt="Nadiyas Clothing">
+                <img src="assest/products/logo image.jpg" alt="Logo" class="w-10 h-10 rounded-full object-cover">
+            </a>
+            <div class="space-x-8 text-sm font-medium">
+                <a href="index.html" class="hover:text-sky-600 transition">Home</a>
+                <a href="shop.html" class="hover:text-sky-600 transition">Shop</a>
+                <a href="contact.html" class="hover:text-sky-600 transition">Contact Us</a>
+                <a href="about.html" class="hover:text-sky-600 transition">About</a>
+            </div>
+            <a href="#" class="text-gray-600 hover:text-sky-600">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 4 0 00-8 0v4M5 11h14l1 12H4L5 11z"></path></svg>
             </a>
         </div>
-
-        <ul class="nav-links">
-
-            <li>
-                <a href="index.html">Home</a>
-            </li>
-
-            <li>
-                <a href="about.html">About</a>
-            </li>
-
-            <li class="dropdown">
-
-                <a href="#">Shop</a>
-
-                <ul class="dropdown-content">
-
-                    <li>
-                        <a href="shop/Mens.html">Mens</a>
-                    </li>
-
-                    <li>
-                        <a href="shop/Women.html">Womens</a>
-                    </li>
-
-                    <li>
-                        <a href="shop/Unisex.html">Unisex</a>
-                    </li>
-
-                    <li>
-                        <a href="shop/kids.html">Kids</a>
-                    </li>
-
-                </ul>
-
-            </li>
-
-            <li>
-                <a href="contact.html">Contact</a>
-            </li>
-
-            <li>
-                <a href="cart.html">
-                    Cart (<span id="cart-count">0</span>)
-                </a>
-            </li>
-
-        </ul>
-
     </nav>
 
+    <main class="max-w-5xl mx-auto px-4 py-10 w-full flex-grow">
+        <p class="text-xs text-gray-400 mb-8">Home / Shop / <span id="breadcrumb-name" class="text-gray-600">Product</span></p>
 
-    <!-- PRODUCT -->
-
-    <main>
-
-        <section class="product-details-page">
-
-            <div id="loading">
-                Loading product...
-            </div>
-
-            <div id="product-container"
-                 style="display:none;">
-
-                <div class="product-image">
-
-                    <img id="product-image"
-                         src=""
-                         alt="Product">
-
-                </div>
-
-
-                <div class="product-information">
-
-                    <h1 id="product-name">
-                    </h1>
-
-                    <p id="product-category">
-                    </p>
-
-                    <h2 id="product-price">
-                    </h2>
-
-                    <p id="product-description">
-                    </p>
-
-
-                    <div>
-
-                        <label for="product-size">
-                            Select Size:
-                        </label>
-
-                        <select id="product-size">
-
-                            <option value="">
-                                Select Size
-                            </option>
-
-                        </select>
-
-                    </div>
-
-
-                    <br>
-
-
-                    <p>
-                        Stock:
-                        <span id="product-stock">
-                        </span>
-                    </p>
-
-
-                    <br>
-
-
-                    <button
-                        type="button"
-                        onclick="addProductToCart()">
-
-                        Add to Cart
-
-                    </button>
-
-
-                    <button
-                        type="button"
-                        onclick="buyNow()">
-
-                        Buy Now
-
-                    </button>
-
-                </div>
-
-            </div>
-
-
-            <div id="error-message"
-                 style="display:none;">
-
-                Unable to load product.
-
-            </div>
-
-        </section>
-
+        <div id="product-container" class="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <p class="text-gray-400 text-sm">Loading details...</p>
+        </div>
     </main>
 
+    <footer class="mt-auto bg-gray-50 border-t border-gray-100 py-8 text-xs text-gray-400">
+        <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-4">
+            <div>
+                <p class="font-semibold text-gray-700 text-sm">Nadiyas Clothing</p>
+                <p>© 2026 Nadiyas Clothing. All rights reserved.</p>
+            </div>
+            <div class="flex space-x-6">
+                <a href="#" class="hover:underline">Privacy Policy</a>
+                <a href="#" class="hover:underline">Terms of Service</a>
+                <a href="#" class="hover:underline">Shipping Info</a>
+                <a href="#" class="hover:underline">Returns</a>
+            </div>
+        </div>
+    </footer>
 
-    <!-- JAVASCRIPT -->
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            const productId = new URLSearchParams(window.location.search).get('id') || 1;
+            const container = document.getElementById('product-container');
 
-    <script src="js/cart.js"></script>
+            try {
+                const res = await fetch('http://localhost:8000/api/products.php');
+                const result = await res.json();
 
-    <script src="js/product.js"></script>
-
+                if (result.success) {
+                    const product = result.data.find(p => p.id == productId);
+                    if (product) {
+                        document.getElementById('breadcrumb-name').innerText = product.name;
+                        container.innerHTML = `
+                            <div>
+                                <div class="rounded-2xl overflow-hidden bg-gray-100 mb-4 h-[420px]">
+                                    <img src="assest/products/${product.image}" class="w-full h-full object-cover">
+                                </div>
+                            </div>
+                            <div class="space-y-6">
+                                <div>
+                                    <span class="text-xs bg-sky-100 text-sky-800 font-bold px-2.5 py-1 rounded">NEW ARRIVAL</span>
+                                    <h1 class="text-3xl font-bold text-gray-800 mt-3">${product.name}</h1>
+                                    <p class="text-xl font-bold text-gray-800 mt-2">$${product.price}</p>
+                                </div>
+                                <p class="text-sm text-gray-500 leading-relaxed">${product.description || 'Modern minimalism meets premium comfort.'}</p>
+                                <div>
+                                    <p class="text-xs font-bold uppercase text-gray-500 mb-2">Color: <span class="text-gray-800">${product.color}</span></p>
+                                    <div class="flex space-x-2">
+                                        <div class="w-6 h-6 rounded-full bg-sky-200 border-2 border-sky-400 cursor-pointer"></div>
+                                        <div class="w-6 h-6 rounded-full bg-gray-800 cursor-pointer"></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <p class="text-xs font-bold uppercase text-gray-500 mb-2">Size</p>
+                                    <div class="flex space-x-2">
+                                        ${product.sizes.split(',').map(s => `<span class="border rounded-md px-4 py-1.5 text-xs font-medium cursor-pointer hover:border-sky-500">${s.trim()}</span>`).join('')}
+                                    </div>
+                                </div>
+                                <button class="w-full bg-sky-200 hover:bg-sky-300 text-sky-900 font-bold py-3 rounded-lg transition shadow-sm">Add to Cart</button>
+                            </div>
+                        `;
+                    }
+                }
+            } catch (e) {
+                container.innerHTML = `<p class="text-red-400">Failed to load product.</p>`;
+            }
+        });
+    </script>
 </body>
-
 </html>

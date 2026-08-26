@@ -1,414 +1,48 @@
-// ==========================================
-// NADIYAS CLOTHING PRODUCT PAGE
-// ==========================================
+// Location: frontend/js/product.js
 
-const API_URL =
-    "http://localhost/nadiyas/backend/api/products.php";
+document.addEventListener('DOMContentLoaded', async () => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const productId = urlParams.get('id');
 
-
-let productData = null;
-
-
-// ==========================================
-// GET PRODUCT ID FROM URL
-// ==========================================
-
-const urlParams =
-    new URLSearchParams(window.location.search);
-
-const productId =
-    urlParams.get("id");
-
-
-// ==========================================
-// LOAD PRODUCT
-// ==========================================
-
-async function loadProduct() {
+    const container = document.getElementById('product-details');
 
     if (!productId) {
-
-        document.getElementById("loading")
-            .style.display = "none";
-
-        document.getElementById("error-message")
-            .style.display = "block";
-
-        document.getElementById("error-message")
-            .textContent =
-            "Product ID is missing.";
-
+        if (container) {
+            container.innerHTML = `<p class="text-red-500 text-lg font-semibold">Product ID එකක් ලබා දී නොමැත. (URL එක අගට ?id=1 ලෙස එක් කරන්න)</p>`;
+        }
         return;
     }
-
 
     try {
+        const response = await fetch(`http://localhost:8000/api/products.php`);
+        const result = await response.json();
 
-        const response =
-            await fetch(
-                API_URL + "?id=" + productId
-            );
+        if (result.success) {
+            const product = result.data.find(p => p.id == productId);
 
-
-        if (!response.ok) {
-
-            throw new Error(
-                "API request failed"
-            );
-
+            if (product && container) {
+                // assest/ + DB එකේ තියෙන path එක එකතු වේ (උදා: assest/mens/image1.jpg)
+                container.innerHTML = `
+                    <div class="w-full md:w-1/2 flex justify-center">
+                        <img src="assest/${product.image}" alt="${product.name}" class="w-full max-w-md h-auto rounded-lg shadow-md object-cover">
+                    </div>
+                    <div class="w-full md:w-1/2 space-y-4">
+                        <h2 class="text-3xl font-bold text-gray-900">${product.name}</h2>
+                        <p class="text-sm text-gray-500 uppercase tracking-wide">Category: ${product.category}</p>
+                        <p class="text-2xl font-bold text-indigo-600">LKR ${product.price}</p>
+                        <p class="text-gray-600">Sizes: <span class="font-semibold">${product.sizes}</span></p>
+                        <button class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-lg transition duration-200">
+                            Add to Cart
+                        </button>
+                    </div>
+                `;
+            } else if (container) {
+                container.innerHTML = `<p class="text-red-500">Product එක සොයා ගැනීමට නොහැකි විය.</p>`;
+            }
         }
-
-
-        const result =
-            await response.json();
-
-
-        if (!result.success ||
-            !result.data) {
-
-            throw new Error(
-                "Product not found"
-            );
-
-        }
-
-
-        productData =
-            result.data;
-
-
-        displayProduct();
-
-
     } catch (error) {
-
-        console.error(error);
-
-
-        document.getElementById("loading")
-            .style.display = "none";
-
-
-        document.getElementById("error-message")
-            .style.display = "block";
-
-
-        document.getElementById("error-message")
-            .textContent =
-            "Unable to connect to product API.";
-
+        if (container) {
+            container.innerHTML = `<p class="text-red-500">Backend Server එක සම්බන්ධ කර ගැනීමට අපොහොසත් විය.</p>`;
+        }
     }
-
-}
-
-
-// ==========================================
-// DISPLAY PRODUCT
-// ==========================================
-
-function displayProduct() {
-
-    document.getElementById("loading")
-        .style.display = "none";
-
-
-    document.getElementById("product-container")
-        .style.display = "flex";
-
-
-    document.getElementById("product-name")
-        .textContent =
-        productData.name;
-
-
-    document.getElementById("product-price")
-        .textContent =
-        "$" +
-        Number(productData.price)
-            .toFixed(2);
-
-
-    document.getElementById("product-category")
-        .textContent =
-        "Category: " +
-        productData.category;
-
-
-    document.getElementById("product-description")
-        .textContent =
-        productData.description;
-
-
-    document.getElementById("product-stock")
-        .textContent =
-        productData.stock;
-
-
-    // ======================================
-    // IMAGE
-    // ======================================
-
-    document.getElementById("product-image")
-        .src =
-        getProductImage(
-            productData
-        );
-
-
-    // ======================================
-    // SIZES
-    // ======================================
-
-    const sizeSelect =
-        document.getElementById(
-            "product-size"
-        );
-
-
-    sizeSelect.innerHTML =
-        '<option value="">Select Size</option>';
-
-
-    const sizes =
-        productData.sizes
-            .split(",");
-
-
-    sizes.forEach(size => {
-
-        const option =
-            document.createElement(
-                "option"
-            );
-
-        option.value =
-            size.trim();
-
-        option.textContent =
-            size.trim();
-
-        sizeSelect.appendChild(
-            option
-        );
-
-    });
-
-}
-
-
-// ==========================================
-// PRODUCT IMAGE
-// ==========================================
-
-function getProductImage(product) {
-
-    const image =
-        product.image;
-
-
-    if (!image) {
-
-        return "";
-
-    }
-
-
-    // Try to use category
-    // folders for existing images
-
-    const category =
-        String(product.category)
-            .toLowerCase();
-
-
-    if (category === "men") {
-
-        return "../assest/mens/" + image;
-
-    }
-
-
-    if (category === "women") {
-
-        return "../assest/womens/dreses/" + image;
-
-    }
-
-
-    if (category === "unisex") {
-
-        return "../assest/unisex/" + image;
-
-    }
-
-
-    if (category === "kids") {
-
-        return "../assest/kids/" + image;
-
-    }
-
-
-    return "../assest/" + image;
-
-}
-
-
-// ==========================================
-// ADD PRODUCT TO CART
-// ==========================================
-
-function addProductToCart() {
-
-    if (!productData) {
-
-        alert(
-            "Product is not loaded."
-        );
-
-        return;
-
-    }
-
-
-    const size =
-        document.getElementById(
-            "product-size"
-        ).value;
-
-
-    if (!size) {
-
-        alert(
-            "Please select a size."
-        );
-
-        return;
-
-    }
-
-
-    if (
-        Number(productData.stock) <= 0
-    ) {
-
-        alert(
-            "This product is out of stock."
-        );
-
-        return;
-
-    }
-
-
-    const product = {
-
-        id:
-            Number(productData.id),
-
-        name:
-            productData.name,
-
-        price:
-            Number(productData.price),
-
-        image:
-            getProductImage(productData),
-
-        category:
-            productData.category,
-
-        size:
-            size,
-
-        quantity:
-            1
-
-    };
-
-
-    addToCart(product);
-
-}
-
-
-// ==========================================
-// BUY NOW
-// ==========================================
-
-function buyNow() {
-
-    if (!productData) {
-
-        alert(
-            "Product is not loaded."
-        );
-
-        return;
-
-    }
-
-
-    const size =
-        document.getElementById(
-            "product-size"
-        ).value;
-
-
-    if (!size) {
-
-        alert(
-            "Please select a size."
-        );
-
-        return;
-
-    }
-
-
-    const product = {
-
-        id:
-            Number(productData.id),
-
-        name:
-            productData.name,
-
-        price:
-            Number(productData.price),
-
-        image:
-            getProductImage(productData),
-
-        category:
-            productData.category,
-
-        size:
-            size,
-
-        quantity:
-            1
-
-    };
-
-
-    localStorage.setItem(
-        "nadiyas_cart",
-        JSON.stringify([product])
-    );
-
-
-    window.location.href =
-        "checkout.html";
-
-}
-
-
-// ==========================================
-// LOAD
-// ==========================================
-
-document.addEventListener(
-    "DOMContentLoaded",
-    loadProduct
-);
+});
