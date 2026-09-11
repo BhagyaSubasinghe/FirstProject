@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Nadiyas Clothing | Product</title>
+
+<link rel="stylesheet"
+href="css/style.css">
+
+</head>
+
+
+<body>
+
+
+<header class="navbar">
+
+<a href="index.html">
+
+<img
+src="images/logo.jpg"
+class="logo-img"
+alt="Nadiyas Clothing">
+
+</a>
+
+
+<ul class="nav-links">
+
+<li><a href="index.html">Home</a></li>
+
+<li><a href="women.html">Women</a></li>
+
+<li><a href="men.html">Men</a></li>
+
+<li><a href="kids.html">Kids</a></li>
+
+<li><a href="unisex.html">Unisex</a></li>
+
+</ul>
+
+
+<div class="nav-actions">
+
+<a href="cart.html"
+class="cart-link">
+
+🛒
+
+<span id="cart-count"
+class="cart-count">
+0
+</span>
+
+</a>
+
+</div>
+
+</header>
+
+
+<main id="product-container">
+
+</main>
+
+
+<footer>
+
+<div class="footer-grid">
+
+<div>
+
+<h3>Nadiyas Clothing</h3>
+
+<p>Modern fashion for every style.</p>
+
+</div>
+
+
+<div>
+
+<h3>Shop</h3>
+
+<a href="women.html">Women</a>
+
+<a href="men.html">Men</a>
+
+<a href="kids.html">Kids</a>
+
+<a href="unisex.html">Unisex</a>
+
+</div>
+
+
+<div>
+
+<h3>Customer Care</h3>
+
+<a href="cart.html">Cart</a>
+
+<a href="checkout.html">Checkout</a>
+
+</div>
+
+
+<div>
+
+<h3>Contact</h3>
+
+<p>Colombo, Sri Lanka</p>
+
+</div>
+
+</div>
+
+
+<div class="footer-bottom">
+
+© 2026 Nadiyas Clothing. All Rights Reserved.
+
+</div>
+
+</footer>
+
+
+<script src="js/products.js"></script>
+
+<script src="js/main.js"></script>
+
+<script src="js/cart.js"></script>
+
+
+<script>
+
+const params =
+new URLSearchParams(window.location.search);
+
+
+const productId =
+parseInt(params.get("id"));
+
+
+const product =
+products.find(
+item => item.id === productId
+);
+
+
+const container =
+document.getElementById(
+"product-container"
+);
+
+
+if (!product) {
+
+container.innerHTML = `
+
+<div class="section">
+
+<div class="section-header">
+
+<h2>Product Not Found</h2>
+
+<a
+href="index.html"
+class="black-btn">
+
+Back to Home
+
+</a>
+
+</div>
+
+</div>
+
+`;
+
+} else {
+
+
+container.innerHTML = `
+
+<section class="product-details">
+
+
+<div class="product-details-image">
+
+<img
+src="${product.image}"
+alt="${product.name}"
+>
+
+</div>
+
+
+<div class="product-details-info">
+
+<span class="category">
+${product.category}
+</span>
+
+
+<h1>
+${product.name}
+</h1>
+
+
+<div class="details-price">
+
+${formatPrice(product.price)}
+
+</div>
+
+
+<p class="details-description">
+
+${product.description}
+
+</p>
+
+
+<div class="size-title">
+Select Size
+</div>
+
+
+<div class="size-options">
+
+${product.sizes.map(size => `
+
+<button
+class="size-option"
+onclick="selectSize(this, '${size}')">
+
+${size}
+
+</button>
+
+`).join("")}
+
+</div>
+
+
+<div class="quantity-box">
+
+<button onclick="changeQuantity(-1)">
+−
+</button>
+
+<span id="quantity">
+1
+</span>
+
+<button onclick="changeQuantity(1)">
++
+</button>
+
+</div>
+
+
+<div class="product-actions">
+
+<button
+class="add-cart"
+onclick="handleAddToCart()">
+
+Add to Cart
+
+</button>
+
+
+<button
+class="buy-now"
+onclick="handleBuyNow()">
+
+Buy Now
+
+</button>
+
+</div>
+
+
+</div>
+
+</section>
+
+`;
+
+}
+
+
+let selectedSize = null;
+
+let quantity = 1;
+
+
+function selectSize(button, size) {
+
+document
+.querySelectorAll(".size-option")
+.forEach(btn => {
+
+btn.classList.remove("active");
+
+});
+
+
+button.classList.add("active");
+
+selectedSize = size;
+
+}
+
+
+function changeQuantity(change) {
+
+quantity += change;
+
+
+if (quantity < 1) {
+
+quantity = 1;
+
+}
+
+
+document.getElementById(
+"quantity"
+).textContent = quantity;
+
+}
+
+
+function handleAddToCart() {
+
+if (!selectedSize) {
+
+alert("Please select a size.");
+
+return;
+
+}
+
+
+addToCart(
+product.id,
+selectedSize,
+quantity
+);
+
+}
+
+
+function handleBuyNow() {
+
+if (!selectedSize) {
+
+alert("Please select a size.");
+
+return;
+
+}
+
+
+addToCart(
+product.id,
+selectedSize,
+quantity
+);
+
+
+window.location.href =
+"checkout.html";
+
+}
+
+</script>
+
+
+</body>
+</html>
