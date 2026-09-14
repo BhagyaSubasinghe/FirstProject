@@ -148,65 +148,82 @@ class="product-grid">
 <script src="js/products.js"></script>
 
 <script src="js/main.js"></script>
-
-
 <script>
 
-const productList =
-document.getElementById("product-list");
+productsReady.then(() => {
+
+    const productList =
+        document.getElementById(
+            "product-list"
+        );
 
 
-const categoryProducts =
-products.filter(
-product => product.category === "Women"
-);
+    const categoryProducts =
+        products.filter(
+            product =>
+                product.category === "Women"
+        );
 
 
-categoryProducts.forEach(product => {
+    categoryProducts.forEach(product => {
 
-productList.innerHTML += `
+        productList.innerHTML += `
 
-<div class="product-card">
+            <div class="product-card">
 
-<a href="product.html?id=${product.id}">
+                <a
+                    href="product.html?id=${product.id}"
+                >
 
-<div class="product-image">
+                    <div class="product-image">
 
-<img
-src="${product.image}"
-alt="${product.name}"
->
+                        <img
+                            src="${product.image}"
+                            alt="${product.name}"
+                        >
 
-</div>
+                    </div>
 
-</a>
+                </a>
 
 
-<div class="product-info">
+                <div class="product-info">
 
-<span class="product-category">
-${product.category}
-</span>
+                    <span class="product-category">
 
-<h3>${product.name}</h3>
+                        ${product.category}
 
-<div class="product-price">
-${formatPrice(product.price)}
-</div>
+                    </span>
 
-<a
-href="product.html?id=${product.id}"
-class="view-product">
 
-View Product
+                    <h3>
+                        ${product.name}
+                    </h3>
 
-</a>
 
-</div>
+                    <div class="product-price">
 
-</div>
+                        ${formatPrice(product.price)}
 
-`;
+                    </div>
+
+
+                    <a
+                        href="product.html?id=${product.id}"
+                        class="view-product"
+                    >
+
+                        View Product
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        `;
+
+    });
 
 });
 

@@ -1,10 +1,18 @@
 function formatPrice(price) {
-    return "Rs. " + price.toLocaleString("en-LK") + ".00";
+
+    return "Rs. " +
+        Number(price).toLocaleString("en-LK") +
+        ".00";
+
 }
 
 
 function getCart() {
-    return JSON.parse(localStorage.getItem("nadiyasCart")) || [];
+
+    return JSON.parse(
+        localStorage.getItem("nadiyasCart")
+    ) || [];
+
 }
 
 
@@ -12,19 +20,37 @@ function updateCartCount() {
 
     const cart = getCart();
 
+
     const count = cart.reduce(
-        (total, item) => total + item.quantity,
+
+        (total, item) =>
+            total + item.quantity,
+
         0
+
     );
 
-    const cartCount = document.getElementById("cart-count");
+
+    const cartCount =
+        document.getElementById(
+            "cart-count"
+        );
+
 
     if (cartCount) {
+
         cartCount.textContent = count;
+
     }
+
 }
 
 
-document.addEventListener("DOMContentLoaded", function () {
-    updateCartCount();
-});
+document.addEventListener(
+    "DOMContentLoaded",
+    function () {
+
+        updateCartCount();
+
+    }
+);

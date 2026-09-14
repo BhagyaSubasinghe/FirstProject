@@ -135,165 +135,189 @@ class="cart-count">
 
 <script src="js/cart.js"></script>
 
-
 <script>
 
-const params =
-new URLSearchParams(window.location.search);
+productsReady.then(() => {
 
 
-const productId =
-parseInt(params.get("id"));
+    const params =
+        new URLSearchParams(
+            window.location.search
+        );
 
 
-const product =
-products.find(
-item => item.id === productId
-);
+    const productId =
+        parseInt(
+            params.get("id")
+        );
 
 
-const container =
-document.getElementById(
-"product-container"
-);
+    const product =
+        products.find(
+            item =>
+                item.id === productId
+        );
 
 
-if (!product) {
+    const container =
+        document.getElementById(
+            "product-container"
+        );
 
-container.innerHTML = `
 
-<div class="section">
+    if (!product) {
 
-<div class="section-header">
+        container.innerHTML = `
 
-<h2>Product Not Found</h2>
+            <div class="section">
 
-<a
-href="index.html"
-class="black-btn">
+                <div class="section-header">
 
-Back to Home
+                    <h2>
+                        Product Not Found
+                    </h2>
 
-</a>
+                    <a
+                        href="index.html"
+                        class="black-btn"
+                    >
+                        Back to Home
+                    </a>
 
-</div>
+                </div>
 
-</div>
+            </div>
 
-`;
+        `;
 
-} else {
+        return;
 
+    }
 
-container.innerHTML = `
 
-<section class="product-details">
+    container.innerHTML = `
 
+        <section class="product-details">
 
-<div class="product-details-image">
 
-<img
-src="${product.image}"
-alt="${product.name}"
->
+            <div class="product-details-image">
 
-</div>
+                <img
+                    src="${product.image}"
+                    alt="${product.name}"
+                >
 
+            </div>
 
-<div class="product-details-info">
 
-<span class="category">
-${product.category}
-</span>
+            <div class="product-details-info">
 
+                <span class="category">
 
-<h1>
-${product.name}
-</h1>
+                    ${product.category}
 
+                </span>
 
-<div class="details-price">
 
-${formatPrice(product.price)}
+                <h1>
+                    ${product.name}
+                </h1>
 
-</div>
 
+                <div class="details-price">
 
-<p class="details-description">
+                    ${formatPrice(product.price)}
 
-${product.description}
+                </div>
 
-</p>
 
+                <p class="details-description">
 
-<div class="size-title">
-Select Size
-</div>
+                    ${product.description}
 
+                </p>
 
-<div class="size-options">
 
-${product.sizes.map(size => `
+                <div class="size-title">
 
-<button
-class="size-option"
-onclick="selectSize(this, '${size}')">
+                    Select Size
 
-${size}
+                </div>
 
-</button>
 
-`).join("")}
+                <div class="size-options">
 
-</div>
+                    ${product.sizes.map(size => `
 
+                        <button
+                            class="size-option"
+                            onclick="selectSize(
+                                this,
+                                '${size}'
+                            )"
+                        >
+                            ${size}
+                        </button>
 
-<div class="quantity-box">
+                    `).join("")}
 
-<button onclick="changeQuantity(-1)">
-−
-</button>
+                </div>
 
-<span id="quantity">
-1
-</span>
 
-<button onclick="changeQuantity(1)">
-+
-</button>
+                <div class="quantity-box">
 
-</div>
+                    <button
+                        onclick="changeQuantity(-1)"
+                    >
+                        −
+                    </button>
 
 
-<div class="product-actions">
+                    <span id="quantity">
+                        1
+                    </span>
 
-<button
-class="add-cart"
-onclick="handleAddToCart()">
 
-Add to Cart
+                    <button
+                        onclick="changeQuantity(1)"
+                    >
+                        +
+                    </button>
 
-</button>
+                </div>
 
 
-<button
-class="buy-now"
-onclick="handleBuyNow()">
+                <div class="product-actions">
 
-Buy Now
+                    <button
+                        class="add-cart"
+                        onclick="handleAddToCart()"
+                    >
+                        Add to Cart
+                    </button>
 
-</button>
 
-</div>
+                    <button
+                        class="buy-now"
+                        onclick="handleBuyNow()"
+                    >
+                        Buy Now
+                    </button>
 
+                </div>
 
-</div>
 
-</section>
+            </div>
 
-`;
+        </section>
 
-}
+    `;
+
+
+    window.currentProduct = product;
+
+});
+
 
 
 let selectedSize = null;
@@ -301,88 +325,95 @@ let selectedSize = null;
 let quantity = 1;
 
 
+
 function selectSize(button, size) {
 
-document
-.querySelectorAll(".size-option")
-.forEach(btn => {
+    document
+        .querySelectorAll(".size-option")
+        .forEach(btn => {
 
-btn.classList.remove("active");
+            btn.classList.remove("active");
 
-});
+        });
 
 
-button.classList.add("active");
+    button.classList.add("active");
 
-selectedSize = size;
+    selectedSize = size;
 
 }
+
 
 
 function changeQuantity(change) {
 
-quantity += change;
+    quantity += change;
 
 
-if (quantity < 1) {
+    if (quantity < 1) {
 
-quantity = 1;
+        quantity = 1;
+
+    }
+
+
+    document.getElementById(
+        "quantity"
+    ).textContent = quantity;
 
 }
 
-
-document.getElementById(
-"quantity"
-).textContent = quantity;
-
-}
 
 
 function handleAddToCart() {
 
-if (!selectedSize) {
+    if (!selectedSize) {
 
-alert("Please select a size.");
+        alert(
+            "Please select a size."
+        );
 
-return;
+        return;
+
+    }
+
+
+    addToCart(
+        window.currentProduct.id,
+        selectedSize,
+        quantity
+    );
 
 }
 
-
-addToCart(
-product.id,
-selectedSize,
-quantity
-);
-
-}
 
 
 function handleBuyNow() {
 
-if (!selectedSize) {
+    if (!selectedSize) {
 
-alert("Please select a size.");
+        alert(
+            "Please select a size."
+        );
 
-return;
+        return;
 
-}
-
-
-addToCart(
-product.id,
-selectedSize,
-quantity
-);
+    }
 
 
-window.location.href =
-"checkout.html";
+    addToCart(
+        window.currentProduct.id,
+        selectedSize,
+        quantity
+    );
+
+
+    window.location.href =
+        "checkout.html";
 
 }
 
 </script>
-
 
 </body>
 </html>
