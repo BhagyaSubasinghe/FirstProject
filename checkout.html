@@ -402,7 +402,7 @@ document
 .getElementById("checkout-form")
 .addEventListener(
 "submit",
-function(event) {
+async function(event) {
 
 event.preventDefault();
 
@@ -461,6 +461,39 @@ items: cart,
 date: new Date().toISOString()
 
 };
+
+
+if (canUseApi) {
+
+try {
+
+const response = await fetch(
+"../backend/api/orders.php",
+{
+method: "POST",
+headers: {
+"Content-Type": "application/json"
+},
+body: JSON.stringify(order)
+}
+);
+
+const result = await response.json();
+
+if (!response.ok || !result.success) {
+throw new Error(result.message || "Unable to place order.");
+}
+
+order.orderNumber = result.order_number;
+
+} catch (error) {
+
+alert(error.message);
+return;
+
+}
+
+}
 
 
 localStorage.setItem(
