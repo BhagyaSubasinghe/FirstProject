@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Nadiyas Clothing | Create Account</title>
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	<header class="navbar">
+		<a href="index.html"><img src="images/logo image.jpg" class="logo-img" alt="Nadiyas Clothing"></a>
+		<ul class="nav-links">
+			<li><a href="index.html">Home</a></li>
+			<li><a href="women.html">Women</a></li>
+			<li><a href="men.html">Men</a></li>
+			<li><a href="kids.html">Kids</a></li>
+			<li><a href="unisex.html">Unisex</a></li>
+		</ul>
+		<div class="nav-actions"><a href="cart.html">Cart</a></div>
+	</header>
+	<main class="checkout-page">
+		<div class="section-header"><span>NADIYAS CLOTHING</span><h1>Create Account</h1></div>
+		<form id="register-form" class="checkout-form">
+			<label for="register-name">Full Name</label>
+			<input id="register-name" type="text" required autocomplete="name">
+			<label for="register-email">Email</label>
+			<input id="register-email" type="email" required autocomplete="email">
+			<label for="register-password">Password</label>
+			<input id="register-password" type="password" minlength="6" required autocomplete="new-password">
+			<button type="submit" class="place-order">Create Account</button>
+			<p id="register-message"></p>
+			<p>Already registered? <a href="login.html">Sign in</a></p>
+		</form>
+	</main>
+	<script>
+		document.getElementById("register-form").addEventListener("submit", event => {
+			event.preventDefault();
+			localStorage.setItem("nadiyasCustomer", JSON.stringify({
+				name: document.getElementById("register-name").value,
+				email: document.getElementById("register-email").value
+			}));
+			document.getElementById("register-message").textContent = "Account created on this device.";
+		});
+	</script>
+</body>
+</html>

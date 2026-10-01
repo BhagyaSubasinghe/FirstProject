@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Nadiyas Clothing | Sign In</title>
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	<header class="navbar">
+		<a href="index.html"><img src="images/logo image.jpg" class="logo-img" alt="Nadiyas Clothing"></a>
+		<ul class="nav-links">
+			<li><a href="index.html">Home</a></li>
+			<li><a href="women.html">Women</a></li>
+			<li><a href="men.html">Men</a></li>
+			<li><a href="kids.html">Kids</a></li>
+			<li><a href="unisex.html">Unisex</a></li>
+		</ul>
+		<div class="nav-actions"><a href="cart.html">Cart</a></div>
+	</header>
+	<main class="checkout-page">
+		<div class="section-header"><span>NADIYAS CLOTHING</span><h1>Sign In</h1></div>
+		<form id="login-form" class="checkout-form">
+			<label for="login-email">Email</label>
+			<input id="login-email" type="email" required autocomplete="email">
+			<label for="login-password">Password</label>
+			<input id="login-password" type="password" required autocomplete="current-password">
+			<button type="submit" class="place-order">Sign In</button>
+			<p id="login-message"></p>
+			<p>New to Nadiyas? <a href="register.html">Create an account</a></p>
+		</form>
+	</main>
+	<script>
+		document.getElementById("login-form").addEventListener("submit", event => {
+			event.preventDefault();
+			localStorage.setItem("nadiyasCustomer", JSON.stringify({
+				email: document.getElementById("login-email").value
+			}));
+			document.getElementById("login-message").textContent = "You are signed in on this device.";
+		});
+	</script>
+</body>
+</html>
