@@ -58,10 +58,14 @@ button {
 }
 
 
-.logo img {
+.logo-img {
+    display: block;
+
     width: 105px;
 
-    height: 70px;
+    height: 60px;
+
+    max-height: 100%;
 
     object-fit: contain;
 }
